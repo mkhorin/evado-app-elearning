@@ -1,0 +1,292 @@
+:root {
+    --back-light: #f8f8f6;
+    --color-danger: #a94442;
+    --color-gray: #aaa;
+    --color-primary: #3c8dbc;
+}
+legend {
+    font-size: 15px;
+}
+
+.front-wrapper {
+    background: none !important;
+}
+.front-wrapper .content-wrapper {
+    margin: 0 0 0 0;
+}
+.front-wrapper .main-footer {
+    margin-left: 0;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+.pagination > li > a {
+    padding: 6px 12px;
+}
+.super-title {
+    margin-top: 30px;
+}
+.subtitle {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    color: #444;
+}
+.modal-footer {
+    text-align: center;
+}
+
+/* LOADABLE */
+
+.loadable-container {
+    position: relative;
+}
+.loadable-container > .loader {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+}
+.loadable-container.loading > .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PAGE */
+
+.page {
+    display: none;
+    padding: 20px 0 30px;
+}
+.page.active {
+    display: block;
+}
+.page h1 {
+    font-size: 30px;
+    margin: 30px 0;
+}
+.page > h3 {
+    color: #888;
+}
+.page-head {
+    position: relative;
+}
+.page .icon-title h1 {
+    margin: 25px 0 10px;
+}
+.page .icon-title .thumbnail {
+    margin-right: 30px;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    padding-right: 145px;
+    border-left: 2px solid #3c8dbc;
+    border-radius: 0;
+}
+.breadcrumb + h1 {
+    margin-top: 30px;
+}
+
+/* USER */
+
+.user-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    color: #666;
+    line-height: 36px;
+    padding: 0 12px;
+    border-left: 1px solid #ddd;
+}
+.user-toggle:hover {
+    color: var(--color-primary);
+}
+
+/* ROW ITEMS */
+
+.row-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f4f4f0;
+}
+.row-item:first-child {
+
+}
+.row-item:nth-child(odd) {
+    background: #fafafa;
+}
+.row-item .cell {
+    padding: 15px;
+    overflow: hidden;
+}
+.row-item .cell > label {
+    color: #888;
+}
+@media (max-width: 768px) {
+    .row-item .cell {
+        width: auto !important;
+    }
+}
+
+/* LESSON */
+
+.lesson-content {
+    margin-bottom: 30px;
+}
+.lesson-card {
+    padding: 20px 15px;
+    background: #fafaf8;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-primary);;
+}
+.lesson-card h4 {
+    margin: 0;
+}
+.lesson-card a {
+    line-height: 1.4;
+}
+.lesson-card-head {
+    margin-bottom: 10px;
+}
+
+.question-list {
+    padding: 20px 15px;
+    background: var(--back-light);
+}
+.question-list-title {
+    margin: 0 0 20px;
+}
+.question-item {
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+.question-item:last-child {
+    margin-bottom: 0;
+}
+
+.file-list {
+    padding: 20px 15px;
+    background: var(--back-light);
+}
+.file-list-title {
+    margin: 0 0 20px;
+}
+.file-item {
+    margin: 0 0 15px 30px;
+}
+.file-item a {
+    font-size: 16px;
+}
+.file-item:last-child {
+    margin-bottom: 0;
+}
+
+/* TASKS */
+
+.task-item {
+    justify-content: left;
+}
+.task-item-id {
+    width: 25%;
+    overflow: hidden;
+}
+.task-item-state {
+    width: 15%;
+}
+.task-item-question {
+    width: 45%;
+}
+.task-info {
+    background: var(--back-light);
+    padding: 15px;
+    font-size: 16px;
+}
+.task-info > span {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.answer {
+    margin: 30px 0;
+    padding: 0 0 30px;
+    border-bottom: 1px solid #ddd;
+}
+.answer h3 {
+    margin: 0 0 25px;
+}
+.answer .commands {
+    display: none;
+    margin: 25px 0 0;
+}
+.answer.draft .commands {
+    display: block;
+}
+
+/* COMMENTS */
+
+.comment-commands {
+    text-align: left;
+    margin: 30px 0 20px;
+}
+.comment-item-date {
+    width: 20%;
+}
+.comment-item-sender {
+    width: 15%;
+}
+.comment-item-message {
+    width: 65%;
+}
+.comment .file-item {
+    margin: 0 0 10px 0;
+}
+.comment .file-item a {
+    font-size: 15px;
+}
+.comment .file-item-link {
+    margin: 0 0 10px;
+}
+.comment [data-command="delete"] {
+    display: none;
+}
+.comment .owner [data-command="delete"] {
+    display: inline-block;
+}
+.comment .form {
+    margin-bottom: 30px;
+}
+
+/* FILES */
+
+.file-item + .file-item {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+.file-item-link {
+    margin: 10px 0;
+}
+.file-uploader-commands {
+    margin: 5px 0 15px;
+    text-align: right;
+}
+.file-uploader-item {
+    position: relative;
+    padding-right: 35px;
+}
+.file-uploader-item + .file-uploader-item {
+    margin-top: 15px;
+}
+.file-uploader-item .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

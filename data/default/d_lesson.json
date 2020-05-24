@@ -1,0 +1,63 @@
+[
+  {
+    "_id": {
+      "$oid": "5ebf1ea93ee3871b94b1fee6"
+    },
+    "_class": "lesson",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "name": "Lorem ipsum dolor sit amet consectetuer convallis",
+    "content": "**Sed Nulla Sed Cum Phasellus pharetra nunc sit feugiat elit Fusce.**\n\nId feugiat dolor tincidunt quis sollicitudin. Mi Sed eu Donec Vivamus nascetur id commodo id Pellentesque ne.\n\n  - Et Integer velit at habitasse ac nulla nascetur ac ante pretium. \n  - Consequat tellus nibh Vestibulum tempus\n\nCurabitur a semper magna facilisi Lorem id volutpat quis Curabitur tincidunt. Leo eget.",
+    "_createdAt": {
+      "$date": "2020-05-15T22:58:49.122Z"
+    },
+    "_editor": {
+      "$oid": "5ebcbee6697a6c1b106d3fbe"
+    },
+    "_updatedAt": {
+      "$date": "2020-05-17T00:44:32.597Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf1ece3ee3871b94b1fee7"
+    },
+    "_class": "lesson",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "name": "At tellus Morbi tincidunt eros at amet",
+    "content": "####Vestibulum consequat mi id\n**Semper dignissim venenatis Suspendisse interdum et In a ridiculus.**\n\nEget pellentesque porttitor Nunc commodo dictum suscipit accumsan cursus Aenean id.\n\n1. Leo amet fringilla risus\n2. **Lorem ipsum dolor sit amet consectetuer eget**\n  - Nulla vitae Nullam nibh\n  - Nonummy orci sociis ipsum\n3. Penatibus elit aliquam faucibus tempor malesuada\n\nFaucibus id urna ipsum dictum ligula accumsan id tempor ut malesuada.",
+    "_createdAt": {
+      "$date": "2020-05-15T22:59:26.692Z"
+    },
+    "_editor": {
+      "$oid": "5ebcbee6697a6c1b106d3fbe"
+    },
+    "_updatedAt": {
+      "$date": "2020-05-17T02:03:19.440Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf1eef3ee3871b94b1fee8"
+    },
+    "_class": "lesson",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "name": "Platea tellus mauris et Phasellus",
+    "content": "Aliquam elit ac habitasse natoque vitae. Scelerisque tincidunt wisi fermentum pretium Nulla Nam nibh Cras mattis ut. \n\n**Orci justo eu justo magnis ipsum justo In:**\n\n  - Amet elit Sed Integer felis urna ac et sagittis Quisque ut\n  - Vitae in tincidunt pharetra ac dui sed consectetuer nibh eget congue\n  - Proin sagittis\n\nEt Integer velit at habitasse ac nulla nascetur ac ante pretium. Consequat tellus nibh Vestibulum tempus.",
+    "_createdAt": {
+      "$date": "2020-05-15T22:59:59.005Z"
+    },
+    "_editor": {
+      "$oid": "5ebcbee6697a6c1b106d3fbe"
+    },
+    "_updatedAt": {
+      "$date": "2020-05-17T02:04:05.455Z"
+    },
+    "_sort": []
+  }
+]

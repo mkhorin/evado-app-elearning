@@ -1,0 +1,17 @@
+[
+  {
+    "_id": {
+      "$oid": "5ebceb5c0bb17e15e0b8ad4c"
+    },
+    "_class": "teacher",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fbe"
+    },
+    "user": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "_createdAt": {
+      "$date": "2020-05-14T06:55:24.796Z"
+    }
+  }
+]

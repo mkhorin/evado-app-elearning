@@ -1,0 +1,100 @@
+
+<div class="page" data-page="task" data-handler="TaskPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li><a href="#" data-action="account" data-t="">Account</a></li>
+            <li data-t="">Task</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <div class="task loadable-container" data-handler="Task">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="task">
+
+            <h1><span data-t="">Task:</span> #{{_id}}</h1>
+
+            <h3 class="subtitle">
+                <span data-t="">Question</span>:&nbsp;
+                <a href="#" data-t="meta.class.question"
+                   data-action="question" data-id="{{questionId}}">{{questionTitle}}</a>
+            </h3>
+
+            <div class="task-info">
+                <span><span data-t="">State</span>: <b data-t="meta.class.task">{{_state_title}}</b></span>
+                <span><span data-t="">Grade</span>: <b data-t="meta.class.task.attr.grade">{{grade_title}}</b></span>
+            </div>
+
+            <div class="answer {{_state}}">
+                <h3 data-t="">Answer</h3>
+                <div class="text">{{answer}}</div>
+                <div class="commands">
+                    <button type="button" class="btn-primary btn" data-command="editAnswer">
+                        <span data-t="">Edit</span>
+                    </button>
+                    <button type="button" class="btn-warning btn" data-command="readyAnswer">
+                        <span data-t="">Ready</span>
+                    </button>
+                </div>
+            </div>
+
+            <h3 data-t="">Comments</h3>
+
+            <%- include('./_comments') %>
+        </template>
+
+        <template data-id="attr">
+            <div class="form-attr form-group {{required}}">
+                <label class="col-md-3 control-label" data-t="meta.class.task"
+                       title="{{extHint}}">{{label}}</label>
+                <div class="col-md-9">
+                    {{content}}
+                    <div class="error-block"></div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="static">
+            <p class="form-control-static">{{value}}</p>
+        </template>
+
+        <template data-id="errorTask">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+
+        <div class="answer-modal modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" data-t="">Edit answer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-error alert-danger alert hidden"></div>
+                        <div class="form" data-handler="Form">
+                            <div class="form-attr form-group required">
+                                <textarea class="form-control" name="answer" rows="10"></textarea>
+                                <div class="error-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-primary btn" data-command="saveAnswer">
+                            <span data-t="">Save</span>
+                        </button>
+                        <button class="btn-default btn" data-dismiss="modal">
+                            <span data-t="">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

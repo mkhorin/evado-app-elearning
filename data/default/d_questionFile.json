@@ -1,0 +1,76 @@
+[
+  {
+    "_id": {
+      "$oid": "5ebf27703ee3871b94b1fef1"
+    },
+    "_class": "questionFile",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "file": "2020-05/5ebf274f3ee3871b94b1feef",
+    "name": "laoreetNam.jpg",
+    "description": "Laoreet Nam euismod leo",
+    "_size": 72120,
+    "_mime": "image/jpeg",
+    "_createdAt": {
+      "$date": "2020-05-15T23:36:16.273Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf27973ee3871b94b1fef4"
+    },
+    "_class": "questionFile",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "file": "2020-05/5ebf277a3ee3871b94b1fef2",
+    "name": "odioRutrumPretium.jpg",
+    "description": "Odio rutrum pretium morbi molestie ipsum condimentum justo",
+    "_size": 89750,
+    "_mime": "image/jpeg",
+    "_createdAt": {
+      "$date": "2020-05-15T23:36:55.947Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf27c03ee3871b94b1fef7"
+    },
+    "_class": "questionFile",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "file": "2020-05/5ebf27ab3ee3871b94b1fef5",
+    "name": "maecenas.jpg",
+    "description": "Maecenas quis nunc et parturient faucibus cursus",
+    "_size": 33088,
+    "_mime": "image/jpeg",
+    "_createdAt": {
+      "$date": "2020-05-15T23:37:36.566Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf27e53ee3871b94b1fefa"
+    },
+    "_class": "questionFile",
+    "_creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "file": "2020-05/5ebf27cc3ee3871b94b1fef8",
+    "name": "laciniaFelis.jpg",
+    "description": "Lacinia felis Pellentesque tempus eget dolor ultrices",
+    "_size": 56519,
+    "_mime": "image/jpeg",
+    "_createdAt": {
+      "$date": "2020-05-15T23:38:13.655Z"
+    },
+    "_editor": {
+      "$oid": "5ebcbee6697a6c1b106d3fbe"
+    },
+    "_updatedAt": {
+      "$date": "2020-05-17T23:38:23.413Z"
+    }
+  }
+]

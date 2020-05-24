@@ -1,0 +1,59 @@
+
+<div class="page" data-page="account" data-handler="AccountPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li data-t="">Account</li>
+        </ol>
+    </div>
+
+    <h1 data-t="">My tasks</h1>
+
+    <div class="task-list loadable-container" data-handler="TaskList">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="list">
+            <div class="task-items">{{items}}</div>
+        </template>
+
+        <template data-id="item">
+            <div class="task-item row-item" data-id="{{_id}}">
+                <div class="task-item-id cell">
+                    <label data-t="">Task number</label>
+                    <div class="value">
+                        <a href="#" data-action="task" title="{{_id}}">#{{_id}}</a>
+                    </div>
+                </div>
+                <div class="task-item-state cell">
+                    <label data-t="">Current state</label>
+                    <div class="value {{stateCss}}" data-t="meta.class.task">{{stateTitle}}</div>
+                </div>
+                <div class="task-item-question cell">
+                    <label data-t="">Question</label>
+                    <div class="value">
+                        <a href="#" data-action="question" data-id="{{question}}">{{questionTitle}}</a>
+                    </div>
+                </div>
+                <div class="task-item-grade cell">
+                    <label data-t="">Grade</label>
+                    <div class="value" data-t="meta.class.task.attr.grade">{{gradeTitle}}</div>
+                </div>
+            </div>
+        </template>
+
+        <%- include('./_pagination') %>
+
+        <template data-id="empty">
+            <div class="alert-warning alert">
+                <span data-t="">You have no assigned tasks yet</span>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

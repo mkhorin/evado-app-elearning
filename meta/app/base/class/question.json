@@ -1,0 +1,136 @@
+{
+  "abstract": false,
+  "description": "Lesson question to check the learned material",
+  "header": ".text",
+  "label": "Question",
+  "attrs": [
+    {
+      "name": "lesson",
+      "label": "Lesson",
+      "type": "ref",
+      "viewType": "relationSelect",
+      "commands": [
+        "add",
+        "edit"
+      ],
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "onDelete": "cascade",
+      "orderNumber": 10,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "lesson",
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "text",
+      "label": "Text",
+      "type": "text",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 20,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": true,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "files",
+      "label": "Files",
+      "type": "ref",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "files",
+      "hidden": false,
+      "history": false,
+      "multiple": true,
+      "onDelete": "null",
+      "options": {
+        "css": "no-label"
+      },
+      "orderNumber": 30,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "questionFile",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "tasks",
+      "label": "Tasks",
+      "type": "backref",
+      "commands": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "tasks",
+      "hidden": false,
+      "history": false,
+      "listView": "listInQuestion",
+      "multiple": true,
+      "options": {
+        "css": "no-label"
+      },
+      "orderNumber": 40,
+      "sortable": false,
+      "sortableRelation": false,
+      "refAttr": "question",
+      "refClass": "task",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    }
+  ],
+  "groups": [
+    {
+      "name": "tabs",
+      "label": "Tabs",
+      "orderNumber": 1000,
+      "type": "tabs"
+    },
+    {
+      "active": true,
+      "name": "files",
+      "label": "Files",
+      "orderNumber": 1010,
+      "parent": "tabs"
+    },
+    {
+      "name": "tasks",
+      "label": "Tasks",
+      "orderNumber": 1020,
+      "parent": "tabs"
+    }
+  ]
+}

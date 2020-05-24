@@ -1,0 +1,35 @@
+
+<div class="page" data-page="main" data-handler="MainPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li data-t="">Main</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <h1 data-t="">Lessons</h1>
+
+    <div class="lesson-list loadable-container" data-handler="LessonList">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="list">
+            <div class="row">{{items}}</div>
+        </template>
+
+        <template data-id="item">
+            <div class="col-sm-6 col-lg-3">
+                <div class="lesson-card" data-id="{{_id}}">
+                    <div class="lesson-card-head" data-t="">Lesson</div>
+                    <h4><a href="#" data-action="lesson" data-t="meta.class.lesson">{{name}}</a></h4>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

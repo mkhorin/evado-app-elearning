@@ -1,0 +1,33 @@
+<%
+layout(_view.get('_layout/content'));
+
+script('front/vendor/markdown/markdown.js');
+script('front/script/Front.js');
+script('front/script/FileUploader.js');
+script('front/script/Form.js');
+script('front/script/Page.js');
+script('front/script/Lesson.js');
+script('front/script/Question.js');
+script('front/script/Task.js');
+script('front/script/Comment.js');
+script('front/script/module.js');
+
+const dataUrl = _url('/api/base/data/');
+const fileUrl = _url('/api/base/file/');
+const metaUrl = _url('/api/base/meta/');
+%>
+
+<div class="front"
+     data-guest="<%- _controller.user.isGuest() %>"
+     data-user="<%- _controller.user.getId() %>"
+     data-data-url="<%- dataUrl %>"
+     data-upload="<%- fileUrl + 'upload' %>"
+     data-meta-url="<%- metaUrl %>">
+
+    <%- include('./_main') %>
+    <%- include('./_lesson') %>
+    <%- include('./_question') %>
+    <%- include('./_account') %>
+    <%- include('./_task') %>
+    <%- include('./_comment') %>
+</div>

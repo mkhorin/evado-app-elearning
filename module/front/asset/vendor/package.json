@@ -1,0 +1,11 @@
+{
+  "name": "evado-app-vendors",
+  "version": "1.0.0",
+  "description": "Evado app vendors",
+  "author": "Maxim Khorin",
+  "license": "Apache-2.0",
+  "repository": {},
+  "dependencies": {
+    "markdown": "^0.5.0"
+  }
+}

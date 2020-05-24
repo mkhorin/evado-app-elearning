@@ -1,0 +1,27 @@
+{
+  "description": "Filter tasks by the current student",
+  "filter": {
+    "Class": "evado-meta-base/filter/RefUserFilter",
+    "attr": "student"
+  },
+  "attrs": [
+    {
+      "name": "_state",
+      "orderNumber": 10
+    },
+    {
+      "name": "question",
+      "eagerLoading": true,
+      "eagerView": "publicView",
+      "orderNumber": 20
+    },
+    {
+      "name": "grade",
+      "orderNumber": 40
+    },
+    {
+      "name": "student",
+      "orderNumber": 50
+    }
+  ]
+}

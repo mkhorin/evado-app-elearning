@@ -1,0 +1,9 @@
+{
+  "description": "Default list",
+  "attrs": [
+    {
+      "name": "user",
+      "orderNumber": 10
+    }
+  ]
+}

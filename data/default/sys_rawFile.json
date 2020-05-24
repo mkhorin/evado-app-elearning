@@ -1,0 +1,74 @@
+[
+  {
+    "_id": {
+      "$oid": "5ebf274f3ee3871b94b1fef0"
+    },
+    "name": "p1.jpg",
+    "mime": "image/jpeg",
+    "size": 72120,
+    "file": "2020-05/5ebf274f3ee3871b94b1feef",
+    "createdAt": {
+      "$date": "2020-05-15T23:35:43.475Z"
+    },
+    "creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "owner": {
+      "$oid": "5ebf27703ee3871b94b1fef1"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf277a3ee3871b94b1fef3"
+    },
+    "name": "p2.jpg",
+    "mime": "image/jpeg",
+    "size": 89750,
+    "file": "2020-05/5ebf277a3ee3871b94b1fef2",
+    "createdAt": {
+      "$date": "2020-05-15T23:36:26.563Z"
+    },
+    "creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "owner": {
+      "$oid": "5ebf27973ee3871b94b1fef4"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf27ab3ee3871b94b1fef6"
+    },
+    "name": "p3.jpg",
+    "mime": "image/jpeg",
+    "size": 33088,
+    "file": "2020-05/5ebf27ab3ee3871b94b1fef5",
+    "createdAt": {
+      "$date": "2020-05-15T23:37:15.365Z"
+    },
+    "creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "owner": {
+      "$oid": "5ebf27c03ee3871b94b1fef7"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebf27cc3ee3871b94b1fef9"
+    },
+    "name": "p4.jpg",
+    "mime": "image/jpeg",
+    "size": 56519,
+    "file": "2020-05/5ebf27cc3ee3871b94b1fef8",
+    "createdAt": {
+      "$date": "2020-05-15T23:37:48.322Z"
+    },
+    "creator": {
+      "$oid": "5ebcbee6697a6c1b106d3fc4"
+    },
+    "owner": {
+      "$oid": "5ebf27e53ee3871b94b1fefa"
+    }
+  }
+]

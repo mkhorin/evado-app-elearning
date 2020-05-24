@@ -1,0 +1,86 @@
+
+<div class="page" data-page="comment" data-handler="CommentPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li><a href="#" data-action="account" data-t="">Account</a></li>
+            <li><a href="#" data-action="task" data-t="">Task</a></li>
+            <li data-t="">Comment</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <div class="comment loadable-container" data-handler="Comment">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="item">
+            <h1 data-t="">Task comment</h1>
+
+            <div class="form-horizontal form {{owner}}">
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Created at</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{date}}</div>
+                    </div>
+                </div>
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Sender</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{sender}}</div>
+                    </div>
+                </div>
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Message</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{text}}</div>
+                    </div>
+                </div>
+
+                {{files}}
+
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button class="btn-primary btn" type="button" data-command="backTask">
+                            <span data-t="">Back to task</span>
+                        </button>
+                        <button class="btn-danger btn" type="button" data-command="delete">
+                            <span data-t="">Delete comment</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="files">
+            <div class="form-attr form-group">
+                <label class="col-md-2 control-label" data-t="">Files</label>
+                <div class="col-md-10">
+                    <div class="form-control-static">
+                        <div class="file-items">{{items}}</div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="file">
+            <div class="file-item">
+                <div class="file-item-link">
+                    <a href="<%- _url('/api/base/file/download') %>?v=.commentFile&id={{_id}}"
+                       target="_blank" title="Download">{{name}}</a>
+                </div>
+                <div class="file-item-description">{{description}}</div>
+            </div>
+        </template>
+
+        <template data-id="static">
+            <p class="form-control-static">{{value}}</p>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

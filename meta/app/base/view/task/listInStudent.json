@@ -1,0 +1,19 @@
+{
+  "label": "List in Student",
+  "description": "View tasks in Student instance",
+  "attrs": [
+    {
+      "name": "_state",
+      "orderNumber": 10
+    },
+    {
+      "name": "question",
+      "eagerLoading": true,
+      "orderNumber": 20
+    },
+    {
+      "name": "grade",
+      "orderNumber": 30
+    }
+  ]
+}

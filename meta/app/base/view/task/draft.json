@@ -1,0 +1,29 @@
+{
+  "label": "Draft",
+  "description": "View task in draft state",
+  "attrs": [
+    {
+      "name": "student",
+      "eagerLoading": true,
+      "orderNumber": 20,
+      "readOnly": true,
+      "viewType": "relationSelect"
+    },
+    {
+      "name": "question",
+      "eagerLoading": true,
+      "orderNumber": 30,
+      "readOnly": true,
+      "viewType": "relationSelect"
+    },
+    {
+      "name": "answer",
+      "orderNumber": 40,
+      "required": true
+    },
+    {
+      "name": "comments",
+      "orderNumber": 50
+    }
+  ]
+}
