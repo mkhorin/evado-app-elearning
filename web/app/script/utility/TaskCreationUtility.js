@@ -5,11 +5,8 @@
 
 Jam.Utility.QuestionTaskCreation = class QuestionTaskCreationUtility extends Jam.Utility {
 
-    onItemClick (event) {
-        event.preventDefault();
-        const data = this.getRequestData({
-            test: 'Test data'
-        });
+    execute () {
+        const data = this.getRequestData();
         Jam.toggleGlobalLoader(true);
         Jam.Helper.post(this.$item, this.getUrl(), data)
             .done(this.onDone.bind(this))
@@ -18,14 +15,12 @@ Jam.Utility.QuestionTaskCreation = class QuestionTaskCreationUtility extends Jam
 
     onDone (data) {
         Jam.toggleGlobalLoader(false);
-        const modal = this.getModal();
-        modal.reload().done(()=> {
-            modal.findInstanceByClass(Jam.Model).notice.success(data);
-        });
+        this.modal.reload().done(()=> this.getModel().notice.success(data));
     }
 
     onFail (data) {
         Jam.toggleGlobalLoader(false);
+        this.parseModelError(data);
     }
 };
 

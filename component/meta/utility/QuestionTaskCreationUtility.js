@@ -7,37 +7,30 @@ const Base = require('evado/component/utility/MetaUtility');
 
 module.exports = class QuestionTaskCreationUtility extends Base {
 
-    isActive () {
+    async isActive () {
         if (!this.enabled || !this.isUpdateAction()) {
             return false;
         }
-        const meta = this.parseBaseMeta();
-        return meta.class && meta.class.name === this.targetClass;
+        const data = await this.resolveMetaParams();
+        return data.class && data.class.name === this.targetClass;
     }
 
     async execute () {
-        const {meta, view} = this.parseBaseMeta();
-        const query = this.findModel(this.postParams.model, view);
-        const question = query ? await query.one() : null;
-        if (!question) {
-            throw new BadRequest('Question not found');
-        }
-        await this.createTasks(question, meta);
+        const data = await this.resolveMetaParams();
+        await this.createTasks(data.model);
         this.controller.sendText('Tasks created');
     }
 
-    async createTasks (question, meta) {
-        const taskClass = meta.getClass('task');
+    async createTasks (question) {
+        const taskClass = question.class.meta.getClass('task');
         const security = this.createMetaSecurity();
         await security.resolveOnCreate(taskClass);
-        const students = await meta.getClass('student').find().ids();
+        const students = await question.class.meta.getClass('student').find().ids();
         for (const student of students) {
-            const task = this.createModel(taskClass);
+            const task = await this.createModel(taskClass);
             task.set('question', question.getId());
             task.set('student', student);
             await task.save();
         }
     }
 };
-
-const BadRequest = require('areto/error/BadRequestHttpException');

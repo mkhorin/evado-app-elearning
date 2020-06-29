@@ -25,7 +25,7 @@ module.exports = {
             type: 'class',
             class: ['lesson', 'task', 'question', 'questionFile', 'comment', 'commentFile']
         },
-        rule: 'Author'
+        rule: 'Creator'
     }, {
         description: 'Teacher cannot update draft tasks',
         roles: 'teacher',
@@ -75,7 +75,7 @@ module.exports = {
             type: 'class',
             class: ['comment', 'commentFile']
         },
-        rule: 'Author'
+        rule: 'Creator'
     }, {
         description: 'Student can read comments from tasks assigned to him',
         roles: 'student',
@@ -172,9 +172,9 @@ module.exports = {
     },
 
     rules: {
-        'Author': {
+        'Creator': {
             description: 'Check user is object creator',
-            config: '{"Class": "evado/component/meta/rbac/rule/AuthorRule"}'
+            config: '{"Class": "evado/component/meta/rbac/rule/UserRule", "attr": "_creator"}'
         },
         'Task comment reader': {
             description: 'Users can read comments from their tasks',
@@ -189,8 +189,8 @@ module.exports = {
             config: '{"Class": "component/meta/rbac/rule/TaskFileReaderRule"}'
         },
         'User': {
-            description: 'Check user bind',
-            config: '{"Class": "evado/component/meta/rbac/rule/AuthorRule", "userAttr": "user"}'
+            description: 'Check user binding',
+            config: '{"Class": "evado/component/meta/rbac/rule/UserRule"}'
         }
     }
 };
