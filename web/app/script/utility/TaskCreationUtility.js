@@ -8,7 +8,7 @@ Jam.Utility.QuestionTaskCreation = class QuestionTaskCreationUtility extends Jam
     execute () {
         const data = this.getRequestData();
         Jam.toggleGlobalLoader(true);
-        Jam.Helper.post(this.$item, this.getUrl(), data)
+        Jam.Helper.post(this.getUrl(), data)
             .done(this.onDone.bind(this))
             .fail(this.onFail.bind(this));
     }

@@ -1,0 +1,14 @@
+{
+  "description": "Default edit",
+  "attrs": [
+    {
+      "name": "user",
+      "orderNumber": 10,
+      "readOnly": true
+    },
+    {
+      "name": "tasks",
+      "orderNumber": 20
+    }
+  ]
+}

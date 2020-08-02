@@ -1,0 +1,23 @@
+{
+  "description": "Default list",
+  "attrs": [
+    {
+      "name": "_state",
+      "orderNumber": 10
+    },
+    {
+      "name": "student",
+      "eagerLoading": true,
+      "orderNumber": 20
+    },
+    {
+      "name": "grade",
+      "orderNumber": 30
+    },
+    {
+      "name": "question",
+      "eagerLoading": true,
+      "orderNumber": 60
+    }
+  ]
+}

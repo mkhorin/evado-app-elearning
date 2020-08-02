@@ -9,7 +9,7 @@ module.exports = class LessonTaskCreationUtility extends Base {
 
     async execute () {
         const data = await this.resolveMetaParams();
-        const lesson = data.lesson.getId();
+        const lesson = data.model.getId();
         const questions = await data.class.meta.getClass('question').find().and({lesson}).all();
         for (const question of questions) {
             await this.createTasks(question);

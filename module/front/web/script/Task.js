@@ -87,7 +87,7 @@ Front.Task = class Task extends Front.LoadableContent {
     onSaveAnswer () {
         const answer = this.answerForm.getValue('answer');
         this.front.toggleLoader(true);
-        $.post(this.getUrl('update'), {
+        this.front.ajaxQueue.post(this.getUrl('update'), {
             class: 'task',
             id: this.id,
             data: {answer}
@@ -114,7 +114,7 @@ Front.Task = class Task extends Front.LoadableContent {
 
     onSubmitTask () {
         this.toggleLoader(true);
-        $.post(this.getUrl('transit'), {
+        this.front.ajaxQueue.post(this.getUrl('transit'), {
             class: 'task',
             id: this.id,
             transition: 'ready'

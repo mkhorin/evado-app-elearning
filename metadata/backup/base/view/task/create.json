@@ -1,0 +1,13 @@
+{
+  "description": "Default create",
+  "attrs": [
+    {
+      "name": "question",
+      "orderNumber": 20
+    },
+    {
+      "name": "student",
+      "orderNumber": 50
+    }
+  ]
+}

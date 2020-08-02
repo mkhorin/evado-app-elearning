@@ -1,0 +1,14 @@
+{
+  "description": "Default list",
+  "attrs": [
+    {
+      "name": "text",
+      "orderNumber": 10
+    },
+    {
+      "name": "lesson",
+      "eagerLoading": true,
+      "orderNumber": 20
+    }
+  ]
+}

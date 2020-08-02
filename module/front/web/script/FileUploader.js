@@ -66,7 +66,7 @@ Front.FileUploader = class FileUploader extends Front.Element {
     }
 
     upload () {
-        const url = this.front.getData('upload') + '?v=.commentFile';
+        const url = this.front.getData('upload') + '?c=commentFile';
         this.xhr = new XMLHttpRequest;
         this.xhr.open('POST', url);
         this.xhr.onreadystatechange = this.changeReadyState.bind(this);

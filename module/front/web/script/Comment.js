@@ -63,7 +63,7 @@ Front.Comment = class Comment extends Front.LoadableContent {
 
     deleteComment () {
         this.toggleLoader(true);
-        $.post(this.getUrl('delete'), this.getPostData())
+        this.front.ajaxQueue.post(this.getUrl('delete'), this.getPostData())
             .done(this.onDoneDelete.bind(this))
             .fail(this.onFailDelete.bind(this));
     }

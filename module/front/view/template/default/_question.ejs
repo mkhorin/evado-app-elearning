@@ -3,9 +3,6 @@
 
     <div class="question loadable-container" data-handler="Question">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="question">
             <div class="page-head">
                 <ol class="breadcrumb">
@@ -36,7 +33,7 @@
 
         <template data-id="file">
             <div class="file-item">
-                <a href="<%- _url('/api/base/file/download') %>?v=.questionFile&id={{_id}}"
+                <a href="<%- _url('/api/base/file/download') %>?c=questionFile&id={{_id}}"
                    title="Download" target="_blank" data-t="">{{name}}</a>
                 <div class="file-item-description" data-t="meta.class.questionFile">{{description}}</div>
             </div>
@@ -46,5 +43,7 @@
             <div class="alert-danger alert">{{text}}</div>
         </template>
 
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

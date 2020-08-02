@@ -12,7 +12,8 @@ module.exports = {
         hint: 'Create tasks for all students',
         enabled: true,
         frontClass: 'QuestionTaskCreation',
-        targetClass: 'question'
+        targetClass: 'question',
+        actions: ['update']
     },
 
     'lessonTaskCreation': {
@@ -21,6 +22,7 @@ module.exports = {
         hint: 'Create tasks for all students',
         enabled: true,
         frontClass: 'LessonTaskCreation',
-        targetClass: 'lesson'
+        targetClass: 'lesson',
+        actions: ['update']
     }
 };

@@ -12,9 +12,6 @@
 
     <div class="task loadable-container" data-handler="Task">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="task">
 
             <h1><span data-t="">Task:</span> #{{_id}}</h1>
@@ -66,6 +63,9 @@
         <template data-id="errorTask">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
 
         <div class="answer-modal modal" tabindex="-1" role="dialog">
             <div class="modal-dialog">

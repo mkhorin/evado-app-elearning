@@ -1,0 +1,80 @@
+{
+  "label": "Main",
+  "description": "Main section",
+  "nodes": [
+    {
+      "parent": "materials",
+      "name": "lessons",
+      "label": "Lessons",
+      "orderNumber": 10,
+      "class": "lesson"
+    },
+    {
+      "parent": "people",
+      "name": "students",
+      "label": "Students",
+      "orderNumber": 10,
+      "class": "student"
+    },
+    {
+      "name": "tasks",
+      "label": "Tasks",
+      "orderNumber": 10
+    },
+    {
+      "parent": "tasks",
+      "name": "draftTasks",
+      "label": "Draft tasks",
+      "orderNumber": 10,
+      "class": "task",
+      "view": "draftList"
+    },
+    {
+      "parent": "materials",
+      "name": "questions",
+      "label": "Questions",
+      "orderNumber": 20,
+      "class": "question"
+    },
+    {
+      "parent": "tasks",
+      "name": "checkingTasks",
+      "label": "Checking tasks",
+      "orderNumber": 20,
+      "class": "task",
+      "view": "checkingList"
+    },
+    {
+      "parent": "people",
+      "name": "teachers",
+      "label": "Teachers",
+      "orderNumber": 20,
+      "class": "teacher"
+    },
+    {
+      "name": "materials",
+      "label": "Materials",
+      "orderNumber": 20
+    },
+    {
+      "parent": "tasks",
+      "name": "pendingTasks",
+      "label": "Pending tasks",
+      "orderNumber": 30,
+      "class": "task",
+      "view": "pendingList"
+    },
+    {
+      "name": "people",
+      "label": "People",
+      "orderNumber": 30
+    },
+    {
+      "parent": "tasks",
+      "name": "allTasks",
+      "label": "All tasks",
+      "orderNumber": 40,
+      "class": "task"
+    }
+  ]
+}
