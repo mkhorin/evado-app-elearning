@@ -23,7 +23,7 @@ module.exports = class TaskFileReaderRule extends Base {
         return this.isAllowType() ? !!user : !user;
     }
 
-    async getObjectFilter () {
+    async getObjectFilter () { // filter objects in list
         const meta = this.getBaseMeta();
         const student = await meta.getClass('student').find().and({user: this.getUserId()}).id();
         const task = await meta.getClass('task').find().and({student}).ids();

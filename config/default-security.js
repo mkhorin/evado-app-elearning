@@ -25,7 +25,7 @@ module.exports = {
             type: 'class',
             class: ['lesson', 'task', 'question', 'questionFile', 'comment', 'commentFile']
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         description: 'Teacher cannot update draft tasks',
         roles: 'teacher',
@@ -54,7 +54,7 @@ module.exports = {
             type: 'class',
             class: 'task'
         },
-        rule: 'Task executor'
+        rule: 'taskExecutor'
     }, {
         description: 'Student can update draft tasks assigned to him',
         roles: 'student',
@@ -65,7 +65,7 @@ module.exports = {
             class: 'task',
             state: 'draft'
         },
-        rule: 'Task executor'
+        rule: 'taskExecutor'
     }, {
         description: 'Student can manage their own comments',
         roles: 'student',
@@ -75,7 +75,7 @@ module.exports = {
             type: 'class',
             class: ['comment', 'commentFile']
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         description: 'Student can read comments from tasks assigned to him',
         roles: 'student',
@@ -85,7 +85,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'Task comment reader'
+        rule: 'taskCommentReader'
     }, {
         description: 'Student can read comment files from tasks assigned to him',
         roles: 'student',
@@ -95,7 +95,7 @@ module.exports = {
             type: 'class',
             class: 'commentFile'
         },
-        rule: 'Task file reader'
+        rule: 'taskFileReader'
     }, {
         description: 'Student can read himself',
         roles: 'student',
@@ -105,7 +105,7 @@ module.exports = {
             type: 'class',
             class: 'student'
         },
-        rule: 'User'
+        rule: 'user'
     }, {
         description: 'Guests can list lessons',
         roles: 'guest',
@@ -132,6 +132,9 @@ module.exports = {
         'moduleStudio': {
             label: 'Studio module',
             description: 'Access to Studio module'
+        },
+        'moduleApiBaseUpload': {
+            label: 'Upload files'
         }
     },
 
@@ -143,19 +146,21 @@ module.exports = {
                 'moduleAdmin',
                 'moduleOffice',
                 'moduleStudio',
-                'upload'
+                'moduleApiBaseUpload'
             ]
         },
         'student': {
             label: 'Student',
             children: [
-                'moduleOffice'
+                'moduleOffice',
+                'moduleApiBaseUpload'
             ]
         },
         'teacher': {
             label: 'Teacher',
             children: [
-                'moduleOffice'
+                'moduleOffice',
+                'moduleApiBaseUpload'
             ]
         },
         'guest': {
@@ -164,33 +169,49 @@ module.exports = {
         }
     },
 
+    rules: {
+        'creator': {
+            label: 'Creator',
+            description: 'Check user is object creator',
+            config: {
+                Class: 'evado/component/meta/rbac/rule/UserRule',
+                attr: '_creator'
+            }
+        },
+        'taskCommentReader': {
+            label: 'Task comment reader',
+            description: 'Users can read comments from their tasks',
+            config: {
+                Class: 'component/meta/rbac/rule/TaskCommentReaderRule'
+            }
+        },
+        'taskExecutor': {
+            label: 'Task executor',
+            description: 'Check user is a task executor',
+            config: {
+                Class: 'evado/component/meta/rbac/rule/RefUserRule',
+                attr: 'student'
+            }
+        },
+        'taskFileReader': {
+            label: 'Task file reader',
+            description: 'Users can read files from their tasks',
+            config: {
+                Class: 'component/meta/rbac/rule/TaskFileReaderRule'
+            }
+        },
+        'user': {
+            description: 'Check user binding',
+            config: {
+                Class: 'evado/component/meta/rbac/rule/UserRule'
+            }
+        }
+    },
+
     assignments: {
         'Adam': 'administrator',
         'Bart': 'student',
         'Sara': 'student',
         'Tim': 'teacher'
-    },
-
-    rules: {
-        'Creator': {
-            description: 'Check user is object creator',
-            config: '{"Class": "evado/component/meta/rbac/rule/UserRule", "attr": "_creator"}'
-        },
-        'Task comment reader': {
-            description: 'Users can read comments from their tasks',
-            config: '{"Class": "component/meta/rbac/rule/TaskCommentReaderRule"}'
-        },
-        'Task executor': {
-            description: 'Check user is a task executor',
-            config: '{"Class": "evado/component/meta/rbac/rule/RefUserRule", "attr": "student"}'
-        },
-        'Task file reader': {
-            description: 'Users can read files from their tasks',
-            config: '{"Class": "component/meta/rbac/rule/TaskFileReaderRule"}'
-        },
-        'User': {
-            description: 'Check user binding',
-            config: '{"Class": "evado/component/meta/rbac/rule/UserRule"}'
-        }
     }
 };

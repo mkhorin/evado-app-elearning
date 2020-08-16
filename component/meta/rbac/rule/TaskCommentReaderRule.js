@@ -23,7 +23,7 @@ module.exports = class TaskCommentReaderRule extends Base {
         return this.isAllowType() ? matched : !matched;
     }
 
-    async getObjectFilter () {
+    async getObjectFilter () { // filter objects in list
         const meta = this.getBaseMeta();
         const user = this.getUserId();
         const student = await meta.getClass('student').find().and({user}).id();
