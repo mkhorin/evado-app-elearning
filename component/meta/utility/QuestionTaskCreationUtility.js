@@ -17,7 +17,7 @@ module.exports = class QuestionTaskCreationUtility extends Base {
         const taskClass = question.class.meta.getClass('task');
         const security = this.createMetaSecurity();
         await security.resolveOnCreate(taskClass);
-        const students = await question.class.meta.getClass('student').find().ids();
+        const students = await question.class.meta.getClass('student').createQuery().ids();
         for (const student of students) {
             const task = await this.createModel(taskClass);
             task.set('question', question.getId());

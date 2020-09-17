@@ -202,6 +202,7 @@ module.exports = {
             }
         },
         'user': {
+            label: 'User',
             description: 'Check user binding',
             config: {
                 Class: 'evado/component/meta/rbac/rule/UserRule'

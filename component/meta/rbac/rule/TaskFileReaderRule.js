@@ -17,7 +17,7 @@ module.exports = class TaskFileReaderRule extends Base {
     async checkReader () {
         const model = this.getTarget();
         const meta = model.class.meta;
-        const tasks = await meta.getClass('comment').find().and({files: model.getId()}).column('task');
+        const tasks = await meta.getClass('comment').find({files: model.getId()}).column('task');
         const students = await meta.getClass('task').findById(tasks).column('student');
         const user = await meta.getClass('student').findById(students).and({user: this.getUserId()}).id();
         return this.isAllowType() ? !!user : !user;
@@ -25,9 +25,9 @@ module.exports = class TaskFileReaderRule extends Base {
 
     async getObjectFilter () { // filter objects in list
         const meta = this.getBaseMeta();
-        const student = await meta.getClass('student').find().and({user: this.getUserId()}).id();
-        const task = await meta.getClass('task').find().and({student}).ids();
-        const files = await meta.getClass('comment').find().and({task}).column('files');
+        const student = await meta.getClass('student').find({user: this.getUserId()}).id();
+        const task = await meta.getClass('task').find({student}).ids();
+        const files = await meta.getClass('comment').find({task}).column('files');
         return {_id: [].concat(...files)};
     }
 };
