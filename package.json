@@ -1,7 +1,7 @@
 {
   "name": "evado-app-elearning",
-  "version": "1.4.0",
-  "description": "E-learning App built on Evado Framework",
+  "version": "1.4.1",
+  "description": "Distance Learning App built on Evado Framework",
   "author": "Maxim Khorin",
   "license": "MIT",
   "engines": {
@@ -21,7 +21,7 @@
     "evado-module-admin": "~1.8.0",
     "evado-module-office": "~1.8.0",
     "evado-module-studio": "~1.8.0",
-    "sharp": "0.24.1"
+    "sharp": "~0.26.0"
   },
   "scripts": {
     "install": "node asset/vendor/install",

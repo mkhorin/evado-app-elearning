@@ -1,9 +1,7 @@
-# Evado E-learning App
+# Evado E-learning
 
-Distance student learning application
-
-- [Evado Declarative Framework](https://github.com/mkhorin/evado)
-- [Step-by-step tutorial](http://nervebit.com)
+Distance learning application built on 
+[Evado Declarative Framework](https://github.com/mkhorin/evado).  
 
 ## Docker installation
 
@@ -61,4 +59,4 @@ Password: 123456
 ```
 
 ## Tutorial
-- [Build App Without Coding](http://nervebit.com)
+- [Build an App Without Coding](http://nervebit.com)

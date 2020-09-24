@@ -9,13 +9,17 @@ module.exports = {
         roles: 'administrator',
         type: 'allow',
         actions: 'all',
-        targets: {type: 'all'}
+        targets: {
+            type: 'all'
+        }
     }, {
         description: 'Teacher can read everything',
         roles: 'teacher',
         type: 'allow',
         actions: 'read',
-        targets: {type: 'all'}
+        targets: {
+            type: 'all'
+        }
     }, {
         description: 'Teacher can manage their own learning materials',
         roles: 'teacher',
