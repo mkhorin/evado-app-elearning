@@ -1,6 +1,6 @@
 # Evado E-learning
 
-Distance learning application built on 
+A distance learning application built on 
 [Evado Declarative Framework](https://github.com/mkhorin/evado).  
 
 ## Docker installation
