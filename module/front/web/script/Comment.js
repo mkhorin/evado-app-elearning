@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Comment = class Comment extends Front.LoadableContent {
+Front.Comment = class Comment extends Front.Loadable {
 
     init () {
         super.init();
@@ -32,7 +32,7 @@ Front.Comment = class Comment extends Front.LoadableContent {
         data.date = Jam.FormatHelper.asDatetime(data._createdAt);
         data.sender = data._creator_title;
         data.task = this.task;
-        data.text = Jam.Helper.escapeTags(data.text);
+        data.text = Jam.StringHelper.escapeTags(data.text);
         data.files = this.renderFiles(data.files);
         data.owner = this.front.isUser(data._creator) ? 'owner' : '';
         return this.resolveTemplate('item', data);
@@ -79,7 +79,7 @@ Front.Comment = class Comment extends Front.LoadableContent {
     }
 };
 
-Front.CommentList = class CommentList extends Front.LoadableContent {
+Front.CommentList = class CommentList extends Front.Loadable {
 
     init () {
         super.init();
@@ -122,7 +122,7 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('') || this.resolveTemplate('empty');
         return this.resolveTemplate('list', {items});
@@ -131,7 +131,7 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
     renderItem (data) {
         data.date = Jam.FormatHelper.asDatetime(data._createdAt);
         data.sender = data._creator_title || data._creator;
-        data.text = Jam.Helper.escapeTags(data.text);
+        data.text = Jam.escape(data.text);
         return this.resolveTemplate('item', data);
     }
 
@@ -142,9 +142,9 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
 
     onDone (data) {
         super.onDone(data);
-        this.pagination.setTotal(data && data.totalSize);
+        this.pagination.setTotal(data?.totalSize);
         this.$content.append(this.pagination.render());
-        this.translateContainer();
+        Jam.t(this.$container);
     }
 
     onDetail (event) {

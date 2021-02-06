@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Question = class Lesson extends Front.LoadableContent {
+Front.Question = class Lesson extends Front.Loadable {
 
     getUrl () {
         return super.getUrl('read');

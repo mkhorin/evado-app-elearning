@@ -8,10 +8,8 @@ module.exports = {
     title: 'Front',
 
     assets: {
-        files: {
-            'markdown': [
-                ['lib/markdown.js', 'markdown.js']
-            ]
+        deploy: {
+            'vendor/markdown': 'vendor/node_modules/markdown/lib'
         }
     }
 };

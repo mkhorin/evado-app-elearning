@@ -24,7 +24,7 @@ Front.FileUploader = class FileUploader extends Front.Element {
     }
 
     setHint (message, $item) {
-        $item.find('.hint-block').html(Jam.i18n.translate(message));
+        $item.find('.hint-block').html(Jam.t(message));
     }
 
     update () {

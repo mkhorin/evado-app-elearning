@@ -3,9 +3,9 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li><a href="#" data-action="account" data-t="">Account</a></li>
-            <li data-t="">Task</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="account" data-t="">Account</a></li>
+            <li class="breadcrumb-item" data-t="">Task</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -31,10 +31,10 @@
                 <h3 data-t="">Answer</h3>
                 <div class="text">{{answer}}</div>
                 <div class="commands">
-                    <button type="button" class="btn-primary btn" data-command="editAnswer">
+                    <button type="button" class="btn-outline-info btn" data-command="editAnswer">
                         <span data-t="">Edit</span>
                     </button>
-                    <button type="button" class="btn-warning btn" data-command="readyAnswer">
+                    <button type="button" class="btn-primary btn" data-command="readyAnswer">
                         <span data-t="">Ready</span>
                     </button>
                 </div>
@@ -47,7 +47,7 @@
 
         <template data-id="attr">
             <div class="form-attr form-group {{required}}">
-                <label class="col-md-3 control-label" data-t="meta.class.task"
+                <label class="col-md-3 col-form-label" data-t="meta.class.task"
                        title="{{extHint}}">{{label}}</label>
                 <div class="col-md-9">
                     {{content}}
@@ -57,7 +57,7 @@
         </template>
 
         <template data-id="static">
-            <p class="form-control-static">{{value}}</p>
+            <p class="form-control-plaintext">{{value}}</p>
         </template>
 
         <template data-id="errorTask">
@@ -71,10 +71,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <h5 class="modal-title" data-t="">Edit answer</h5>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" data-t="">Edit answer</h4>
                     </div>
                     <div class="modal-body">
                         <div class="modal-error alert-danger alert hidden"></div>
@@ -89,7 +89,7 @@
                         <button class="btn-primary btn" data-command="saveAnswer">
                             <span data-t="">Save</span>
                         </button>
-                        <button class="btn-default btn" data-dismiss="modal">
+                        <button class="btn-outline-secondary btn" data-dismiss="modal">
                             <span data-t="">Cancel</span>
                         </button>
                     </div>

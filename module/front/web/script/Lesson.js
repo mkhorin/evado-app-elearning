@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Lesson = class Lesson extends Front.LoadableContent {
+Front.Lesson = class Lesson extends Front.Loadable {
 
     getUrl () {
         return super.getUrl('read');
@@ -38,7 +38,7 @@ Front.Lesson = class Lesson extends Front.LoadableContent {
     }
 };
 
-Front.LessonList = class LessonList extends Front.LoadableContent {
+Front.LessonList = class LessonList extends Front.Loadable {
 
     init () {
         super.init();
@@ -60,12 +60,12 @@ Front.LessonList = class LessonList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('');
         return items
             ? this.resolveTemplate('list', {items})
-            : this.resolveTemplate('error', {text: Jam.i18n.translate('No lessons found')});
+            : this.resolveTemplate('error', {text: Jam.t('No lessons found')});
     }
 
     renderItem (data) {

@@ -1,13 +1,9 @@
-:root {
-    --back-light: #f8f8f6;
-    --color-danger: #a94442;
-    --color-gray: #aaa;
-    --color-primary: #3c8dbc;
+body {
+    --back-light: #fafaf8;
+    --navbar-color: var(--light-warning);
+    --super-navbar-color: var(--dark-warning);
+    --sidebar-width: 0;
 }
-legend {
-    font-size: 15px;
-}
-
 .front-wrapper {
     background: none !important;
 }
@@ -19,28 +15,21 @@ legend {
 }
 
 .pagination {
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 .pagination > li > a {
-    padding: 6px 12px;
+    padding: .5px 1rem;
 }
 .super-title {
-    margin-top: 30px;
+    margin-top: 2rem;
 }
 .subtitle {
-    margin: 20px 0 30px;
-    font-size: 18px;
+    margin: 1.5rem 0 2rem;
+    font-size: 1.2rem;
     color: #444;
 }
 .modal-footer {
     text-align: center;
-}
-.signboard {
-    padding: 20px;
-    margin-top: 20px;
-    color: #884;
-    background: #ffe;
-    border-bottom: 2px solid #cca;
 }
 
 /* LOADABLE */
@@ -67,14 +56,12 @@ legend {
 
 .page {
     display: none;
-    padding: 20px 0 30px;
 }
 .page.active {
     display: block;
 }
 .page h1 {
-    font-size: 30px;
-    margin: 30px 0;
+    margin: 2rem 0;
 }
 .page > h3 {
     color: #888;
@@ -83,21 +70,16 @@ legend {
     position: relative;
 }
 .page .icon-title h1 {
-    margin: 25px 0 10px;
+    margin: 2rem 0 1rem;
 }
-.page .icon-title .thumbnail {
-    margin-right: 30px;
+.page .icon-title .img-thumbnail {
+    margin: 0 2rem 1rem 0;
 }
 
 /* BREADCRUMB */
 
 .breadcrumb {
-    padding-right: 145px;
-    border-left: 2px solid #3c8dbc;
-    border-radius: 0;
-}
-.breadcrumb + h1 {
-    margin-top: 30px;
+    background: #eff;
 }
 
 /* USER */
@@ -108,12 +90,12 @@ legend {
     top: 0;
     cursor: pointer;
     color: #666;
-    line-height: 36px;
+    line-height: 3rem;
     padding: 0 12px;
     border-left: 1px solid #ddd;
 }
 .user-toggle:hover {
-    color: var(--color-primary);
+    color: var(--primary);
 }
 
 /* ROW ITEMS */
@@ -150,9 +132,9 @@ legend {
 }
 .lesson-card {
     padding: 20px 15px;
-    background: #fafaf8;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-primary);;
+    background: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--info);
 }
 .lesson-card h4 {
     margin: 0;
@@ -161,7 +143,7 @@ legend {
     line-height: 1.4;
 }
 .lesson-card-head {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .question-list {
@@ -172,25 +154,22 @@ legend {
     margin: 0 0 20px;
 }
 .question-item {
-    margin-bottom: 10px;
-    padding-left: 30px;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
 }
 .question-item:last-child {
     margin-bottom: 0;
 }
 
 .file-list {
-    padding: 20px 15px;
+    padding: 1.5rem 1rem;
     background: var(--back-light);
 }
 .file-list-title {
-    margin: 0 0 20px;
+    margin: 0 0 1.5rem;
 }
 .file-item {
-    margin: 0 0 15px 30px;
-}
-.file-item a {
-    font-size: 16px;
+    margin: 0 0 1rem 2rem;
 }
 .file-item:last-child {
     margin-bottom: 0;
@@ -282,8 +261,7 @@ legend {
     margin: 10px 0;
 }
 .file-uploader-commands {
-    margin: 5px 0 15px;
-    text-align: right;
+    margin: .5rem 0 1rem;
 }
 .file-uploader-item {
     position: relative;

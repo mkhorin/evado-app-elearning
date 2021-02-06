@@ -3,10 +3,10 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li><a href="#" data-action="account" data-t="">Account</a></li>
-            <li><a href="#" data-action="task" data-t="">Task</a></li>
-            <li data-t="">Comment</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="account" data-t="">Account</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="task" data-t="">Task</a></li>
+            <li class="breadcrumb-item" data-t="">Comment</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -16,30 +16,30 @@
         <template data-id="item">
             <h1 data-t="">Task comment</h1>
 
-            <div class="form-horizontal form {{owner}}">
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Created at</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{date}}</div>
+            <div class="form {{owner}}">
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Created at</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{date}}</div>
                     </div>
                 </div>
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Sender</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{sender}}</div>
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Sender</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{sender}}</div>
                     </div>
                 </div>
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Message</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{text}}</div>
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Message</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{text}}</div>
                     </div>
                 </div>
 
                 {{files}}
 
-                <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
                         <button class="btn-primary btn" type="button" data-command="backTask">
                             <span data-t="">Back to task</span>
                         </button>
@@ -52,10 +52,10 @@
         </template>
 
         <template data-id="files">
-            <div class="form-attr form-group">
-                <label class="col-md-2 control-label" data-t="">Files</label>
-                <div class="col-md-10">
-                    <div class="form-control-static">
+            <div class="form-attr form-group row">
+                <label class="col-md-3 col-form-label" data-t="">Files</label>
+                <div class="col-md-9">
+                    <div class="form-control-plaintext">
                         <div class="file-items">{{items}}</div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
         </template>
 
         <template data-id="static">
-            <p class="form-control-static">{{value}}</p>
+            <p class="form-control-plaintext">{{value}}</p>
         </template>
 
         <template data-id="error">

@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Task = class Task extends Front.LoadableContent {
+Front.Task = class Task extends Front.Loadable {
 
     init () {
         super.init();
@@ -70,7 +70,7 @@ Front.Task = class Task extends Front.LoadableContent {
                 return Jam.FormatHelper.asDate(value);
         }
         value = this.front.meta.formatAsEnum(value, data, 'meta.class.task');
-        return Jam.Helper.escapeTags(value);
+        return Jam.escape(value);
     }
 
     renderError () {
@@ -98,7 +98,7 @@ Front.Task = class Task extends Front.LoadableContent {
     onDoneAnswer () {
         this.front.toggleLoader(false);
         this.answer = this.answerForm.getValue('answer');
-        this.find('.answer .text').html(Jam.Helper.escapeTags(this.answer));
+        this.find('.answer .text').html(Jam.escape(this.answer));
         this.$answerModal.modal('hide');
     }
 
@@ -140,7 +140,7 @@ Front.Task = class Task extends Front.LoadableContent {
     }
 };
 
-Front.TaskList = class TaskList extends Front.LoadableContent {
+Front.TaskList = class TaskList extends Front.Loadable {
 
     init () {
         super.init();
@@ -167,7 +167,7 @@ Front.TaskList = class TaskList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('');
         const template = items ? 'list' : 'empty';
@@ -191,8 +191,8 @@ Front.TaskList = class TaskList extends Front.LoadableContent {
 
     onDone (data) {
         super.onDone(data);
-        this.pagination.setTotal(data && data.totalSize);
+        this.pagination.setTotal(data?.totalSize);
         this.$content.append(this.pagination.render());
-        this.translateContainer();
+        Jam.t(this.$container);
     }
 };
