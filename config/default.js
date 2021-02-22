@@ -68,6 +68,7 @@ module.exports = {
     params: {
         'enablePasswordReset': false,
         'enableSignUp': false,
-        'enableSignUpVerification': false
+        'enableSignUpVerification': false,
+        'languageToggle': true
     }
 };
