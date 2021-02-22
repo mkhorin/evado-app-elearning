@@ -1,5 +1,6 @@
-'use strict';
-
+/**
+ * @copyright Copyright (c) 2021 Maxim Khorin <maksimovichu@gmail.com>
+ */
 Front.FileUploader = class FileUploader extends Front.Element {
 
     init () {

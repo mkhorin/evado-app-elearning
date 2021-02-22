@@ -7,9 +7,5 @@ module.exports = {
 
     title: 'Front',
 
-    assets: {
-        deploy: {
-            'vendor/markdown': 'vendor/node_modules/markdown/lib'
-        }
-    }
+    assets: require('./default-assets')
 };
