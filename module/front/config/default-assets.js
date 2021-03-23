@@ -6,18 +6,17 @@
 module.exports = {
 
     build: [{
-        Class: 'FileMerger',
+        Class: 'Packer',
         sources: [
-            'front/Front.js',
-            'front/Element.js',
-            'front/Loadable.js',
-            'front'
+            'src/Front.js',
+            'src/Element.js',
+            'src/Loadable.js',
+            'src'
         ],
-        target: 'dist/front.min.js'
+        target: 'vendor/front.min.js'
     }],
 
-    deploy: {
-        'vendor': 'dist/front.min.js',
+    deploy: {        
         'vendor/markdown': 'vendor/node_modules/markdown/lib'
     }
 };
