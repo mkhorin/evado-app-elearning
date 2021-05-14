@@ -82,7 +82,7 @@ Front.Task = class Task extends Front.Loadable {
     onEditAnswer () {
         this.answerForm.setValue('answer', this.answer);
         this.$answerError.addClass('hidden');
-        this.$answerModal.modal();
+        this.answerModal = Jam.showModal(this.$answerModal);
     }
 
     onSaveAnswer () {
@@ -100,7 +100,7 @@ Front.Task = class Task extends Front.Loadable {
         this.front.toggleLoader(false);
         this.answer = this.answerForm.getValue('answer');
         this.find('.answer .text').html(Jam.escape(this.answer));
-        this.$answerModal.modal('hide');
+        this.answerModal.hide();
     }
 
     onFailAnswer (data) {

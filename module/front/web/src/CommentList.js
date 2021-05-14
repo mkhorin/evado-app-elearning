@@ -79,7 +79,7 @@ Front.CommentList = class CommentList extends Front.Loadable {
     onCreate () {
         this.getHandler('Form').trigger('form:clear');
         this.$newError.addClass('hidden');
-        this.$new.modal();
+        this.modal = Jam.showModal(this.$new);
     }
 
     onSend () {
@@ -98,7 +98,7 @@ Front.CommentList = class CommentList extends Front.Loadable {
     }
 
     onSendDone () {
-        this.$new.modal('hide');
+        this.modal.hide();
         this.load();
     }
 
