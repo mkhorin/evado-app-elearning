@@ -11,7 +11,7 @@
     "name": "laoreetNam.jpg",
     "description": "Laoreet Nam euismod leo",
     "_size": 72120,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_createdAt": {
       "$date": "2020-05-15T23:36:16.273Z"
     }
@@ -28,7 +28,7 @@
     "name": "odioRutrumPretium.jpg",
     "description": "Odio rutrum pretium morbi molestie ipsum condimentum justo",
     "_size": 89750,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_createdAt": {
       "$date": "2020-05-15T23:36:55.947Z"
     }
@@ -45,7 +45,7 @@
     "name": "maecenas.jpg",
     "description": "Maecenas quis nunc et parturient faucibus cursus",
     "_size": 33088,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_createdAt": {
       "$date": "2020-05-15T23:37:36.566Z"
     }
@@ -62,7 +62,7 @@
     "name": "laciniaFelis.jpg",
     "description": "Lacinia felis Pellentesque tempus eget dolor ultrices",
     "_size": 56519,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_createdAt": {
       "$date": "2020-05-15T23:38:13.655Z"
     },

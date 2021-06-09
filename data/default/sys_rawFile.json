@@ -4,7 +4,7 @@
       "$oid": "5ebf274f3ee3871b94b1fef0"
     },
     "name": "p1.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 72120,
     "file": "2020-05/5ebf274f3ee3871b94b1feef",
     "createdAt": {
@@ -22,7 +22,7 @@
       "$oid": "5ebf277a3ee3871b94b1fef3"
     },
     "name": "p2.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 89750,
     "file": "2020-05/5ebf277a3ee3871b94b1fef2",
     "createdAt": {
@@ -40,7 +40,7 @@
       "$oid": "5ebf27ab3ee3871b94b1fef6"
     },
     "name": "p3.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 33088,
     "file": "2020-05/5ebf27ab3ee3871b94b1fef5",
     "createdAt": {
@@ -58,7 +58,7 @@
       "$oid": "5ebf27cc3ee3871b94b1fef9"
     },
     "name": "p4.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 56519,
     "file": "2020-05/5ebf27cc3ee3871b94b1fef8",
     "createdAt": {
