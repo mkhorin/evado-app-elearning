@@ -11,7 +11,7 @@ const Base = require('evado/component/meta/rbac/rule/BaseRule');
 module.exports = class TaskCommentReaderRule extends Base {
 
     execute () {
-        return this.isObjectTarget() ? this.checkReader() : this.isAllowType();
+        return this.isObjectTarget() ? this.checkReader() : this.isAllow();
     }
 
     async checkReader () {
@@ -20,7 +20,7 @@ module.exports = class TaskCommentReaderRule extends Base {
         const student = await meta.getClass('task').findById(model.get('task')).scalar('student');
         const user = await meta.getClass('student').findById(student).scalar('user');
         const matched = this.isUser(user);
-        return this.isAllowType() ? matched : !matched;
+        return this.isAllow() ? matched : !matched;
     }
 
     async getObjectFilter () { // filter objects in list

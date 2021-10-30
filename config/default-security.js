@@ -25,21 +25,27 @@ module.exports = {
         roles: 'teacher',
         type: 'allow',
         actions: ['create', 'update', 'delete'],
-        targets: {
+        targets: [{
             type: 'class',
             class: ['lesson', 'task', 'question', 'questionFile', 'comment', 'commentFile']
-        },
-        rule: 'creator'
+        }, {
+            type: 'transition'
+        }],
+        rules: 'creator'
     }, {
         description: 'Teacher cannot update draft tasks',
         roles: 'teacher',
         type: 'deny',
         actions: 'update',
-        targets: {
+        targets: [{
             type: 'state',
             class: 'task',
             state: 'draft'
-        }
+        }, {
+            type: 'transition',
+            class: 'task',
+            transition: 'ready'
+        }]
     }, {
         description: 'Student can read any learning material',
         roles: 'student',
@@ -58,18 +64,22 @@ module.exports = {
             type: 'class',
             class: 'task'
         },
-        rule: 'taskExecutor'
+        rules: 'taskExecutor'
     }, {
         description: 'Student can update draft tasks assigned to him',
         roles: 'student',
         type: 'allow',
         actions: 'update',
-        targets: {
+        targets: [{
             type: 'state',
             class: 'task',
             state: 'draft'
-        },
-        rule: 'taskExecutor'
+        }, {
+            type: 'transition',
+            class: 'task',
+            transition: 'ready'
+        }],
+        rules: 'taskExecutor'
     }, {
         description: 'Student can manage their own comments',
         roles: 'student',
@@ -79,7 +89,7 @@ module.exports = {
             type: 'class',
             class: ['comment', 'commentFile']
         },
-        rule: 'creator'
+        rules: 'creator'
     }, {
         description: 'Student can read comments from tasks assigned to him',
         roles: 'student',
@@ -89,7 +99,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'taskCommentReader'
+        rules: 'taskCommentReader'
     }, {
         description: 'Student can read comment files from tasks assigned to him',
         roles: 'student',
@@ -99,7 +109,7 @@ module.exports = {
             type: 'class',
             class: 'commentFile'
         },
-        rule: 'taskFileReader'
+        rules: 'taskFileReader'
     }, {
         description: 'Student can read himself',
         roles: 'student',
@@ -109,7 +119,7 @@ module.exports = {
             type: 'class',
             class: 'student'
         },
-        rule: 'user'
+        rules: 'user'
     }, {
         description: 'Guests can list lessons',
         roles: 'guest',
