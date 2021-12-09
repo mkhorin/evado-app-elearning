@@ -15,6 +15,10 @@ Object.assign(Jam.I18n.defaults, {
     'Delete comment': 'Удалить комментарий',
 
     'E-learning App Demo': 'Демонстрация приложения электронного обучения',
+    'Edit answer': 'Редактировать ответ',
+
+    'File is uploading...': 'Файл загружается...',
+    'File uploaded': 'Файл загружен',
 
     'Grade': 'Оценка',
 
@@ -43,7 +47,9 @@ Object.assign(Jam.I18n.defaults, {
     'Task:': 'Задание:',
     'Task comment': 'Комментарий к заданию',
     'Task number': 'Номер задания',
-    'This task has no comments yet': 'Этот таск без коментариев',
+    'The file is uploaded. Delete it anyway?': 'Файл уже загружен на сервер. Все равно удалить?',
+    'The uploading is in progress. Delete it anyway?': 'Загрузка в процессе выполнения. Все равно удалить?',
+    'This task has no comments yet': 'У этого задания пока нет комментариев',
 
     'You have no assigned tasks yet': 'У вас нет назначенных заданий'
 });

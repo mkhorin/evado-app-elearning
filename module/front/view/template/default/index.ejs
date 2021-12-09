@@ -1,28 +1,64 @@
 <%
 layout(_view.get('_layout/content'));
 
-script('front/vendor/front.min.js');
 script('front/vendor/markdown/markdown.js');
-script('front/script/module.js');
+script('front/vendor/vue/vue.js');
 
-const dataUrl = _url('/api/base/data/');
-const fileUrl = _url('/api/base/file/');
-const metaUrl = _url('/api/base/meta/');
+script('front/script/account.js');
+script('front/script/breadcrumbs.js');
+script('front/script/comment.js');
+script('front/script/comments.js');
+script('front/script/lesson.js');
+script('front/script/lessons.js');
+script('front/script/mixin.js');
+script('front/script/modalDialog.js');
+script('front/script/modelForm.js');
+script('front/script/answerEditForm.js');
+script('front/script/commentCreationForm.js');
+script('front/script/commentViewForm.js');
+script('front/script/modelFormAttr.js');
+script('front/script/modelFormDate.js');
+script('front/script/modelFormFile.js');
+script('front/script/modelFormFileItem.js');
+script('front/script/modelFormString.js');
+script('front/script/modelFormText.js');
+script('front/script/pagination.js');
+script('front/script/task.js');
+script('front/script/question.js');
+script('front/script/front.js');
+
+const user = _controller.user;
 %>
+
+<%- include('./_account') %>
+<%- include('./_breadcrumbs') %>
+<%- include('./_comment') %>
+<%- include('./_comments') %>
+<%- include('./_lesson') %>
+<%- include('./_lessons') %>
+<%- include('./_modalDialog') %>
+<%- include('./_modelForm') %>
+<%- include('./_modelFormDate') %>
+<%- include('./_modelFormFile') %>
+<%- include('./_modelFormFileItem') %>
+<%- include('./_modelFormString') %>
+<%- include('./_modelFormText') %>
+<%- include('./_pagination') %>
+<%- include('./_task') %>
+<%- include('./_question') %>
 
 <%- include(_view.get('_part/signboard')) %>
 
-<div class="front"
-     data-guest="<%- _controller.user.isGuest() %>"
-     data-user="<%- _controller.user.getId() %>"
-     data-data-url="<%- dataUrl %>"
-     data-upload="<%- fileUrl + 'upload' %>"
-     data-meta-url="<%- metaUrl %>">
+<div id="front"
+     data-user-id="<%- user.getId() %>"
+     data-auth-url="<%- _url('/auth/sign-in?returnUrl=/front') %>"
+     data-data-url="<%- _url('/api/base/data') %>"
+     data-file-url="<%- _url('/api/base/file') %>"
+     data-meta-url="<%- _url('/api/base/meta') %>"
+     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=icon"
+     data-csrf="<%- _controller.getCsrfToken() %>">
 
-    <%- include('./_main') %>
-    <%- include('./_lesson') %>
-    <%- include('./_question') %>
-    <%- include('./_account') %>
-    <%- include('./_task') %>
-    <%- include('./_comment') %>
+    <keep-alive include="lessons,lesson,question">
+        <componen :is="activePage" v-bind="activePageProps"></componen>
+    </keep-alive>
 </div>

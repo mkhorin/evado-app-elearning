@@ -31,6 +31,7 @@ Jam.I18n.meta = {
     'Complete': 'Завершить',
     'Complete task': 'Закрыть задание',
     'Content': 'Содержимое',
+    'Created at': 'Создано',
 
     'Description': 'Описание',
     'Draft': 'Черновик',
@@ -47,6 +48,7 @@ Jam.I18n.meta = {
     'Lessons': 'Уроки',
 
     'Materials': 'Материалы',
+    'Message': 'Сообщение',
 
     'Name': 'Название',
 
@@ -63,6 +65,7 @@ Jam.I18n.meta = {
     'Return this task to work': 'Вернуть задание на доработку',
     'Rework': 'Доработать',
 
+    'Sender': 'Отправитель',
     'Start task checking': 'Начать проверку задания',
     'State': 'Состояние',
     'Student': 'Студент',

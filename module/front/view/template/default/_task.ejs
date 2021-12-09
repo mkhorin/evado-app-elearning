@@ -1,98 +1,74 @@
+<template id="task">
+    <div class="page">
+        <div class="task loadable-container">
+            <template v-show="!loading">
 
-<div class="page" data-page="task" data-handler="TaskPage">
+                <breadcrumbs>
+                    <template #path>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toAccount" href="#" data-t="">Account</a>
+                        </li>
+                        <li class="breadcrumb-item" data-t="">Task</li>
+                    </template>
+                </breadcrumbs>
 
-    <div class="page-head">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
-            <li class="breadcrumb-item"><a href="#" data-action="account" data-t="">Account</a></li>
-            <li class="breadcrumb-item" data-t="">Task</li>
-        </ol>
-        <%- include('./_user') %>
-    </div>
+                <h1><span data-t="">Task:</span> #{{id}}</h1>
 
-    <div class="task loadable-container" data-handler="Task">
+                <h3 class="subtitle">
+                    <span data-t="">Question</span>:&nbsp;
+                    <a @click.prevent="toQuestion(question)" href="#">
+                        <span>{{questionTitle}}</span>
+                    </a>
+                </h3>
 
-        <template data-id="task">
-
-            <h1><span data-t="">Task:</span> #{{_id}}</h1>
-
-            <h3 class="subtitle">
-                <span data-t="">Question</span>:&nbsp;
-                <a href="#" data-t="meta.class.question"
-                   data-action="question" data-id="{{questionId}}">{{questionTitle}}</a>
-            </h3>
-
-            <div class="task-info">
-                <span><span data-t="">State</span>: <b data-t="meta.class.task">{{_state_title}}</b></span>
-                <span><span data-t="">Grade</span>: <b data-t="meta.class.task.attr.grade">{{grade_title}}</b></span>
-            </div>
-
-            <div class="answer {{_state}}">
-                <h3 data-t="">Answer</h3>
-                <div class="text">{{answer}}</div>
-                <div class="commands">
-                    <button type="button" class="btn-outline-primary btn" data-command="editAnswer">
-                        <span data-t="">Edit</span>
-                    </button>
-                    <button type="button" class="btn-success btn" data-command="readyAnswer">
-                        <span data-t="">Ready</span>
-                    </button>
+                <div class="task-info">
+                    <span>
+                        <span data-t="">State</span>:
+                        <b>{{stateTitle}}</b>
+                    </span>
+                    <span>
+                        <span data-t="">Grade</span>:
+                        <b>{{gradeTitle}}</b>
+                    </span>
                 </div>
-            </div>
 
-            <h3 data-t="">Comments</h3>
-
-            <%- include('./_comments') %>
-        </template>
-
-        <template data-id="attr">
-            <div class="form-attr form-group {{required}}">
-                <label class="col-md-3 col-form-label" data-t="meta.class.task"
-                       title="{{extHint}}">{{label}}</label>
-                <div class="col-md-9">
-                    {{content}}
-                    <div class="error-block"></div>
-                </div>
-            </div>
-        </template>
-
-        <template data-id="static">
-            <p class="form-control-plaintext">{{value}}</p>
-        </template>
-
-        <template data-id="errorTask">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
-
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
-        <div class="answer-modal modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" data-t="">Edit answer</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-error alert-danger alert hidden"></div>
-                        <div class="form" data-handler="Form">
-                            <div class="form-attr form-group required">
-                                <textarea class="form-control" name="answer" rows="10"></textarea>
-                                <div class="error-block"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn-primary btn" data-command="saveAnswer">
-                            <span data-t="">Save</span>
+                <div :class="[state,'answer']">
+                    <h3 data-t="">Answer</h3>
+                    <div class="text">{{answer}}</div>
+                    <div class="commands">
+                        <button @click="onEditAnswer" type="button" class="btn-outline-primary btn">
+                            <span data-t="">Edit</span>
                         </button>
-                        <button class="btn-outline-secondary btn" data-bs-dismiss="modal">
-                            <span data-t="">Cancel</span>
+                        <button @click="onReadyAnswer" type="button" class="btn-success btn">
+                            <span data-t="">Ready</span>
                         </button>
                     </div>
                 </div>
+
+                <h3 data-t="">Comments</h3>
+
+                <comments
+                    :comment-creation="true"
+                    :task="task">
+                </comments>
+
+            </template>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
             </div>
         </div>
+
+        <modal-dialog ref="answerModal" title="Edit answer" size="lg">
+            <template #body>
+                <answer-edit-form ref="answerForm" :answer="answer"></answer-edit-form>
+            </template>
+            <template #footer>
+                <button @click="onSaveAnswer" class="btn-success btn" data-t="">Save</button>
+            </template>
+        </modal-dialog>
     </div>
-</div>
+</template>

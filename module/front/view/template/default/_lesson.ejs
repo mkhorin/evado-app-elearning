@@ -1,46 +1,35 @@
+<template id="lesson">
+    <div class="page">
+        <div class="lesson loadable-container">
+            <template v-show="!loading">
 
-<div class="page" data-page="lesson" data-handler="LessonPage">
+                <breadcrumbs>
+                    <template #path>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+                        </li>
+                        <li class="breadcrumb-item" data-t="">Lesson</li>
+                    </template>
+                </breadcrumbs>
 
-    <div class="lesson loadable-container" data-handler="Lesson">
+                <h1 data-t="meta.class.lesson">{{name}}</h1>
 
-        <template data-id="lesson">
-            <div class="page-head">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
-                    <li class="breadcrumb-item" data-t="">Lesson</li>
-                </ol>
-                <%- include('./_user') %>
+                <div class="lesson-content" v-html="content"></div>
+
+                <div class="question-list">
+                    <h3 class="question-list-title" data-t="">Lesson questions</h3>
+                    <div v-for="item of questions" class="question-item">
+                        <a @click.prevent="toQuestion(item.id)" href="#">{{item.text}}</a>
+                    </div>
+                    <div v-if="!questions.length" class="alert-warning alert">
+                        <span data-t="">The lesson has no questions</span>
+                    </div>
+                </div>
+            </template>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
             </div>
-
-            <h1 data-t="meta.class.lesson">{{name}}</h1>
-
-            <div class="lesson-content">{{content}}</div>
-
-            {{questions}}
-        </template>
-
-        <template data-id="questions">
-            <div class="question-list">
-                <h3 class="question-list-title" data-t="">Lesson questions</h3>
-                {{items}}
-            </div>
-        </template>
-
-        <template data-id="question">
-            <div class="question-item" data-id="{{_id}}">
-                <a href="#" data-action="question">{{text}}</a>
-            </div>
-        </template>
-
-        <template data-id="noQuestions">
-            <div class="alert-warning alert" data-t="">The lesson has no questions</div>
-        </template>
-
-        <template data-id="error">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
-
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
     </div>
-</div>
+</template>

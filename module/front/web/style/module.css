@@ -4,11 +4,8 @@ body {
     --super-navbar-color: var(--dark-warning);
     --sidebar-width: 0;
 }
-.pagination {
-    margin-top: 1.5rem;
-}
 .pagination > li > a {
-    padding: .5px 1rem;
+    padding: 6px 12px;
 }
 .super-title {
     margin-top: 2rem;
@@ -18,9 +15,6 @@ body {
     font-size: 1.2rem;
     color: #444;
 }
-.modal-footer {
-    text-align: center;
-}
 
 /* LOADABLE */
 
@@ -28,42 +22,27 @@ body {
     position: relative;
 }
 .loadable-container > .loader {
-    display: none;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     z-index: 101;
-}
-.loadable-container.loading > .loader {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 /* PAGE */
 
-.page {
-    display: none;
-}
-.page.active {
-    display: block;
-}
 .page h1 {
     margin: 2rem 0;
-}
-.page > h3 {
-    color: #888;
 }
 .page-head {
     position: relative;
 }
-.page .icon-title h1 {
-    margin: 2rem 0 1rem;
-}
-.page .icon-title .img-thumbnail {
-    margin: 0 2rem 1rem 0;
+.page > h4 {
+    color: #888;
 }
 
 /* USER */
@@ -140,17 +119,17 @@ body {
     margin-bottom: 0;
 }
 
-.file-list {
+.question .file-list {
     padding: 1.5rem 1rem;
     background: var(--back-light);
 }
-.file-list-title {
+.question .file-list-title {
     margin: 0 0 1.5rem;
 }
-.file-item {
-    margin: 0 0 1rem 2rem;
+.question .file-item {
+    margin: 0 0 1rem 1rem;
 }
-.file-item:last-child {
+.question .file-item:last-child {
     margin-bottom: 0;
 }
 

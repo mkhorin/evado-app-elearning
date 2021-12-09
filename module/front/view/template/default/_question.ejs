@@ -1,49 +1,40 @@
+<template id="question">
+    <div class="page">
+        <div class="question loadable-container">
+            <template v-show="!loading">
+                <breadcrumbs>
+                    <template #path>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="onLesson" href="#" data-t="">Lesson</a>
+                        </li>
+                        <li class="breadcrumb-item" data-t="">Question</li>
+                    </template>
+                </breadcrumbs>
 
-<div class="page" data-page="question" data-handler="QuestionPage">
+                <h1 data-t="meta.class.question">{{text}}</h1>
 
-    <div class="question loadable-container" data-handler="Question">
+                <h3 class="subtitle">
+                    <span data-t="">Lesson</span>:&nbsp;
+                    <a @click.prevent="onLesson" href="#">{{lessonTitle}}</a>
+                </h3>
 
-        <template data-id="question">
-            <div class="page-head">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
-                    <li class="breadcrumb-item"><a href="#" data-action="lesson" data-id="{{lessonId}}" data-t="">Lesson</a></li>
-                    <li class="breadcrumb-item" data-t="">Question</li>
-                </ol>
-                <%- include('./_user') %>
+                <div v-if="files.length" class="file-list">
+                    <h3 class="file-list-title" data-t="">Question files</h3>
+                    <div v-for="item of files" class="file-item">
+                        <a :href="item.url" target="_blank" data-t="">{{item.name}}</a>
+                        <div class="file-item-description">
+                            <span data-t="meta.class.questionFile">{{item.description}}</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
             </div>
-
-            <h1 data-t="meta.class.question">{{text}}</h1>
-
-            <h3 class="subtitle">
-                <span data-t="">Lesson</span>:&nbsp;
-                <a href="#" data-action="lesson" data-id="{{lessonId}}">{{lessonTitle}}</a>
-            </h3>
-
-            {{files}}
-
-        </template>
-
-        <template data-id="files">
-            <div class="file-list">
-                <h3 class="file-list-title" data-t="">Question files</h3>
-                {{items}}
-            </div>
-        </template>
-
-        <template data-id="file">
-            <div class="file-item">
-                <a href="<%- _url('/api/base/file/download') %>?c=questionFile&id={{_id}}"
-                   title="Download" target="_blank" data-t="">{{name}}</a>
-                <div class="file-item-description" data-t="meta.class.questionFile">{{description}}</div>
-            </div>
-        </template>
-
-        <template data-id="error">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
-
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
     </div>
-</div>
+</template>

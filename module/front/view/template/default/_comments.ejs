@@ -1,98 +1,47 @@
+<template id="comments">
+    <div class="loadable-container">
 
-<div class="comment-list loadable-container" data-handler="CommentList" data-task="{{_id}}">
-
-    <template data-id="list">
-        <div class="comment-commands">
-            <button class="btn-success btn" type="button" data-command="create">
+        <div v-if="commentCreation" class="comment-commands">
+            <button @click="onNew" class="btn-success btn" type="button">
                 <span data-t="">New comment</span>
             </button>
         </div>
-        <div class="comment-items">##items##</div>
-    </template>
 
-    <template data-id="item">
-        <div class="comment-item row-item" data-id="##_id##">
-            <div class="comment-item-date cell">
-                <div class="value">
-                    <a href="#" data-action="comment">##date##</a>
-                </div>
-            </div>
-            <div class="comment-item-sender cell">
-                <label data-t="">Sender</label>
-                <div class="value">##sender##</div>
-            </div>
-            <div class="comment-item-message cell">
-                <label data-t="">Message</label>
-                <div class="value">##text##</div>
-            </div>
-        </div>
-    </template>
-
-    <%- include('./_pagination', {start: '##', end: '##'}) %>
-
-    <template data-id="empty">
-        <div class="alert-info alert mt-2">
-            <span data-t="">This task has no comments yet</span>
-        </div>
-    </template>
-
-    <template data-id="error">
-        <div class="alert-danger alert">##text##</div>
-    </template>
-
-    <div class="loadable-content"></div>
-    <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
-    <div class="comment-modal modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" data-t="">New comment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="modal-error alert-danger alert hidden"></div>
-                    <div class="form" data-handler="Form">
-                        <div class="form-attr form-group required">
-                            <div class="form-control-plaintext">
-                                <textarea class="form-control" name="text" rows="4"></textarea>
-                                <div class="error-block"></div>
-                            </div>
-                        </div>
-                        <div class="form-attr form-group">
-                            <div class="form-control-plaintext">
-                                <div class="file-uploader" data-handler="FileUploader">
-                                    <input type="hidden" name="files"/>
-                                    <div class="file-uploader-commands">
-                                        <button class="btn-success btn" type="button" data-command="addFile">
-                                            <span data-t="">Add file</span>
-                                        </button>
-                                    </div>
-                                    <template data-id="fileUploaderItem">
-                                        <div class="file-uploader-item form-group">
-                                            <input type="file" class="form-control-file">
-                                            <div class="hint-block"></div>
-                                            <div class="error-block"></div>
-                                            <button class="btn-danger btn-sm btn" type="button" data-command="removeFile">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </template>
-                                </div>
-                                <div class="error-block"></div>
-                            </div>
-                        </div>
+        <div v-show="!empty" class="comment-items">
+            <div v-for="item of items" :key="item.id" class="comment-item row-item">
+                <div class="comment-item-date cell">
+                    <div class="value">
+                        <a @click.prevent="onComment(item.id)" href="#">{{item.date}}</a>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn-primary btn" data-command="send">
-                        <span data-t="">Send</span>
-                    </button>
-                    <button class="btn-outline-secondary btn" data-bs-dismiss="modal">
-                        <span data-t="">Cancel</span>
-                    </button>
+                <div class="comment-item-sender cell">
+                    <label data-t="">Sender</label>
+                    <div class="value">{{item.sender}}</div>
+                </div>
+                <div class="comment-item-message cell">
+                    <label data-t="">Message</label>
+                    <div class="value">{{item.message}}</div>
                 </div>
             </div>
         </div>
+
+        <pagination></pagination>
+
+        <div v-show="!loading && empty" class="alert-warning alert mb-0">
+            <span data-t="">This task has no comments yet</span>
+        </div>
+
+        <div v-show="loading" class="loader">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+
+        <modal-dialog ref="newComment" title="New comment" size="lg">
+            <template #body>
+                <comment-creation-form ref="newCommentForm"></comment-creation-form>
+            </template>
+            <template #footer>
+                <button @click="onSend" class="btn-success btn" data-t="">Send</button>
+            </template>
+        </modal-dialog>
     </div>
-</div>
+</template>
