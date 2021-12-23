@@ -4,6 +4,7 @@
   "filter": {
     "_state": "draft"
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "student",

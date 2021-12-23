@@ -9,9 +9,11 @@
       "type": "string",
       "viewType": "state",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": false,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 10,
@@ -20,6 +22,7 @@
       "readOnly": true,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -32,9 +35,11 @@
         "edit"
       ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "onDelete": "cascade",
@@ -45,6 +50,7 @@
       "readOnly": false,
       "required": true,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -53,9 +59,11 @@
       "label": "Answer",
       "type": "text",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 30,
@@ -64,6 +72,7 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -73,9 +82,11 @@
       "type": "integer",
       "viewType": "radioList",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 40,
@@ -84,6 +95,7 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false,
       "enums": [
@@ -127,9 +139,11 @@
         "edit"
       ],
       "commonSearchable": true,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "onDelete": "cascade",
@@ -140,6 +154,7 @@
       "readOnly": false,
       "required": true,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -152,9 +167,11 @@
         "edit"
       ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "listView": "listInTask",
       "multiple": true,
@@ -166,6 +183,7 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     }
@@ -217,17 +235,17 @@
     {
       "name": "ready",
       "label": "Ready",
+      "hint": "Send this task",
       "nullStartState": false,
       "startStates": [
         "draft"
       ],
       "finalState": "pending",
-      "orderNumber": 10,
       "condition": [
-        "NOT EMPTY",
-        "answer"
+        "$notEmpty",
+        ".answer"
       ],
-      "hint": "Send this task"
+      "orderNumber": 10
     },
     {
       "name": "check",
@@ -250,8 +268,8 @@
       ],
       "finalState": "closed",
       "condition": [
-        "NOT EMPTY",
-        "grade"
+        "$notEmpty",
+        ".grade"
       ],
       "orderNumber": 40
     },
@@ -265,8 +283,8 @@
       ],
       "finalState": "draft",
       "condition": [
-        "EMPTY",
-        "grade"
+        "$empty",
+        ".grade"
       ],
       "orderNumber": 50
     },

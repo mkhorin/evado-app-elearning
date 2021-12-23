@@ -1,5 +1,6 @@
 {
   "description": "Default create",
+  "readOnly": false,
   "attrs": [
     {
       "name": "question",

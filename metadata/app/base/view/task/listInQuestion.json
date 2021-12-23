@@ -1,6 +1,7 @@
 {
   "label": "List in Question",
   "description": "View tasks in Question instance",
+  "readOnly": false,
   "attrs": [
     {
       "name": "_state",

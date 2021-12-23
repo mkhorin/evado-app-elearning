@@ -1,6 +1,7 @@
 {
   "label": "Draft",
   "description": "View task in draft state",
+  "readOnly": false,
   "attrs": [
     {
       "name": "student",

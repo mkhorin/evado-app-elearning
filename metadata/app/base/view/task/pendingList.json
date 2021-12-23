@@ -4,6 +4,7 @@
   "filter": {
     "_state": "pending"
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "student",

@@ -4,6 +4,7 @@
     "Class": "evado-meta-base/filter/RefUserFilter",
     "attr": "student"
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "_state",

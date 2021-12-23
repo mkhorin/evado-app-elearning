@@ -4,6 +4,7 @@
   "filter": {
     "_state": "checking"
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "student",

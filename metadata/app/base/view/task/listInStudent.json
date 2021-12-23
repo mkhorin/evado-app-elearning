@@ -1,6 +1,7 @@
 {
   "label": "List in Student",
   "description": "View tasks in Student instance",
+  "readOnly": false,
   "attrs": [
     {
       "name": "_state",
