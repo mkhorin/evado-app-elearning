@@ -1,12 +1,12 @@
 /**
  * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
+ *
+ * Users can read comments from their tasks
+ * Check user is a task executor
  */
 'use strict';
 
 const Base = require('evado/component/meta/rbac/rule/BaseRule');
-
-// users can read comments from their tasks
-// check user is a task executor
 
 module.exports = class TaskCommentReaderRule extends Base {
 
@@ -23,7 +23,10 @@ module.exports = class TaskCommentReaderRule extends Base {
         return this.isAllow() ? matched : !matched;
     }
 
-    async getObjectFilter () { // filter objects in list
+    /**
+     * Filter objects in list
+     */
+    async getObjectFilter () {
         const meta = this.getBaseMeta();
         const user = this.getUserId();
         const student = await meta.getClass('student').find({user}).id();

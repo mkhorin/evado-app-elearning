@@ -1,12 +1,12 @@
 /**
  * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
+ *
+ * Users can read files from their tasks
+ * Check user is a task executor
  */
 'use strict';
 
 const Base = require('evado/component/meta/rbac/rule/BaseRule');
-
-// users can read files from their tasks
-// check user is a task executor
 
 module.exports = class TaskFileReaderRule extends Base {
 
@@ -23,7 +23,10 @@ module.exports = class TaskFileReaderRule extends Base {
         return this.isAllow() ? !!user : !user;
     }
 
-    async getObjectFilter () { // filter objects in list
+    /**
+     * Filter objects in list
+     */
+    async getObjectFilter () {
         const meta = this.getBaseMeta();
         const student = await meta.getClass('student').find({user: this.getUserId()}).id();
         const task = await meta.getClass('task').find({student}).ids();
