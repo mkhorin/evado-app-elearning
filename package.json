@@ -1,7 +1,7 @@
 {
   "name": "evado-app-elearning",
   "version": "5.1.0",
-  "description": "Distance Learning built on Evado Framework",
+  "description": "Distance Learning web app built on Evado Framework",
   "author": "Maxim Khorin",
   "license": "MIT",
   "repository": {

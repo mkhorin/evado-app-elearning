@@ -1,7 +1,9 @@
-# Evado E-learning
+# Evado E-learning Web App
 
 A distance learning application built on 
 [Evado Declarative Framework](https://github.com/mkhorin/evado).  
+
+[![Web app built on Evado declarative framework](doc/evado-app.png)](http://nervebit.com)
 
 ## Docker installation
 
