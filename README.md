@@ -1,4 +1,4 @@
-# Evado E-learning Web App
+# E-learning Web App
 
 A distance learning application built on 
 [Evado Declarative Framework](https://github.com/mkhorin/evado).  

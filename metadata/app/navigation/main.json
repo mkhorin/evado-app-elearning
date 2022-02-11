@@ -19,7 +19,8 @@
     {
       "name": "tasks",
       "label": "Tasks",
-      "orderNumber": 10
+      "orderNumber": 10,
+      "type": "container"
     },
     {
       "parent": "tasks",
@@ -54,7 +55,8 @@
     {
       "name": "materials",
       "label": "Materials",
-      "orderNumber": 20
+      "orderNumber": 20,
+      "type": "container"
     },
     {
       "parent": "tasks",
@@ -67,7 +69,8 @@
     {
       "name": "people",
       "label": "People",
-      "orderNumber": 30
+      "orderNumber": 30,
+      "type": "container"
     },
     {
       "parent": "tasks",
