@@ -1,43 +1,43 @@
 <template id="comment">
-    <div class="page">
+  <div class="page">
 
-        <breadcrumbs>
-            <template #path>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="toLessons" href="#" data-t="">Main</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="toAccount" href="#" data-t="">Account</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="onTask" href="#" data-t="">Task</a>
-                </li>
-                <li class="breadcrumb-item" data-t="">Comment</li>
-            </template>
-        </breadcrumbs>
+    <breadcrumbs>
+      <template #path>
+        <li class="breadcrumb-item">
+          <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a @click.prevent="toAccount" href="#" data-t="">Account</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a @click.prevent="onTask" href="#" data-t="">Task</a>
+        </li>
+        <li class="breadcrumb-item" data-t="">Comment</li>
+      </template>
+    </breadcrumbs>
 
-        <h1 data-t="">Task comment</h1>
+    <h1 data-t="">Task comment</h1>
 
-        <div class="loadable-container">
-            <template v-show="!loading">
+    <div class="loadable-container">
+      <template v-show="!loading">
 
-                <comment-view-form :id="comment"></comment-view-form>
+        <comment-view-form :id="comment"></comment-view-form>
 
-                <div class="row mt-4">
-                    <div class="col-md-9 offset-md-3">
-                        <button @click="onTask" class="btn-primary btn">
-                            <span data-t="">Back to task</span>
-                        </button>
-                        <button @click="onDelete" class="btn-danger btn" type="button">
-                            <span data-t="">Delete comment</span>
-                        </button>
-                    </div>
-                </div>
-            </template>
-
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
+        <div class="row mt-4">
+          <div class="col-md-9 offset-md-3">
+            <button @click="onTask" class="btn-primary btn">
+              <span data-t="">Back to task</span>
+            </button>
+            <button @click="onDelete" class="btn-danger btn" type="button">
+              <span data-t="">Delete comment</span>
+            </button>
+          </div>
         </div>
+      </template>
+
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+  </div>
 </template>

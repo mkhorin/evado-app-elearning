@@ -40,7 +40,7 @@ Vue.component('comments', {
         async send (data) {
             try {
                 data = {
-                    task: {links: this.task},
+                    task: this.task,
                     ...data
                 };
                 await this.fetchText('create', {

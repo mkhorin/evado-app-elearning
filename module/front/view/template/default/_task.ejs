@@ -1,74 +1,74 @@
 <template id="task">
-    <div class="page">
-        <div class="task loadable-container">
-            <template v-show="!loading">
+  <div class="page">
+    <div class="task loadable-container">
+      <template v-show="!loading">
 
-                <breadcrumbs>
-                    <template #path>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="toLessons" href="#" data-t="">Main</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="toAccount" href="#" data-t="">Account</a>
-                        </li>
-                        <li class="breadcrumb-item" data-t="">Task</li>
-                    </template>
-                </breadcrumbs>
+        <breadcrumbs>
+          <template #path>
+            <li class="breadcrumb-item">
+              <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a @click.prevent="toAccount" href="#" data-t="">Account</a>
+            </li>
+            <li class="breadcrumb-item" data-t="">Task</li>
+          </template>
+        </breadcrumbs>
 
-                <h1><span data-t="">Task:</span> #{{id}}</h1>
+        <h1><span data-t="">Task:</span> #{{id}}</h1>
 
-                <h3 class="subtitle">
-                    <span data-t="">Question</span>:&nbsp;
-                    <a @click.prevent="toQuestion(question)" href="#">
-                        <span>{{questionTitle}}</span>
-                    </a>
-                </h3>
+        <h3 class="subtitle">
+          <span data-t="">Question</span>:&nbsp;
+          <a @click.prevent="toQuestion(question)" href="#">
+            <span>{{questionTitle}}</span>
+          </a>
+        </h3>
 
-                <div class="task-info">
-                    <span>
-                        <span data-t="">State</span>:
-                        <b>{{stateTitle}}</b>
-                    </span>
-                    <span>
-                        <span data-t="">Grade</span>:
-                        <b>{{gradeTitle}}</b>
-                    </span>
-                </div>
-
-                <div :class="[state,'answer']">
-                    <h3 data-t="">Answer</h3>
-                    <div class="text">{{answer}}</div>
-                    <div class="commands">
-                        <button @click="onEditAnswer" type="button" class="btn-outline-primary btn">
-                            <span data-t="">Edit</span>
-                        </button>
-                        <button @click="onReadyAnswer" type="button" class="btn-success btn">
-                            <span data-t="">Ready</span>
-                        </button>
-                    </div>
-                </div>
-
-                <h3 data-t="">Comments</h3>
-
-                <comments
-                    :comment-creation="true"
-                    :task="task">
-                </comments>
-
-            </template>
-
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
+        <div class="task-info">
+          <span>
+            <span data-t="">State</span>:
+            <b>{{stateTitle}}</b>
+          </span>
+          <span>
+            <span data-t="">Grade</span>:
+            <b>{{gradeTitle}}</b>
+          </span>
         </div>
 
-        <modal-dialog ref="answerModal" title="Edit answer" size="lg">
-            <template #body>
-                <answer-edit-form ref="answerForm" :answer="answer"></answer-edit-form>
-            </template>
-            <template #footer>
-                <button @click="onSaveAnswer" class="btn-success btn" data-t="">Save</button>
-            </template>
-        </modal-dialog>
+        <div :class="[state,'answer']">
+          <h3 data-t="">Answer</h3>
+          <div class="text">{{answer}}</div>
+          <div class="commands">
+            <button @click="onEditAnswer" type="button" class="btn-outline-primary btn">
+              <span data-t="">Edit</span>
+            </button>
+            <button @click="onReadyAnswer" type="button" class="btn-success btn">
+              <span data-t="">Ready</span>
+            </button>
+          </div>
+        </div>
+
+        <h3 data-t="">Comments</h3>
+
+        <comments
+          :comment-creation="true"
+          :task="task">
+        </comments>
+
+      </template>
+
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+
+    <modal-dialog ref="answerModal" title="Edit answer" size="lg">
+      <template #body>
+        <answer-edit-form ref="answerForm" :answer="answer"></answer-edit-form>
+      </template>
+      <template #footer>
+        <button @click="onSaveAnswer" class="btn-success btn" data-t="">Save</button>
+      </template>
+    </modal-dialog>
+  </div>
 </template>

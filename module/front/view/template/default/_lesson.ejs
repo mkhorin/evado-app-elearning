@@ -1,35 +1,35 @@
 <template id="lesson">
-    <div class="page">
-        <div class="lesson loadable-container">
-            <template v-show="!loading">
+  <div class="page">
+    <div class="lesson loadable-container">
+      <template v-show="!loading">
 
-                <breadcrumbs>
-                    <template #path>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="toLessons" href="#" data-t="">Main</a>
-                        </li>
-                        <li class="breadcrumb-item" data-t="">Lesson</li>
-                    </template>
-                </breadcrumbs>
+        <breadcrumbs>
+          <template #path>
+            <li class="breadcrumb-item">
+              <a @click.prevent="toLessons" href="#" data-t="">Main</a>
+            </li>
+            <li class="breadcrumb-item" data-t="">Lesson</li>
+          </template>
+        </breadcrumbs>
 
-                <h1 data-t="meta.class.lesson">{{name}}</h1>
+        <h1 data-t="meta.class.lesson">{{name}}</h1>
 
-                <div class="lesson-content" v-html="content"></div>
+        <div class="lesson-content" v-html="content"></div>
 
-                <div class="question-list">
-                    <h3 class="question-list-title" data-t="">Lesson questions</h3>
-                    <div v-for="item of questions" class="question-item">
-                        <a @click.prevent="toQuestion(item.id)" href="#">{{item.text}}</a>
-                    </div>
-                    <div v-if="!questions.length" class="alert-warning alert">
-                        <span data-t="">The lesson has no questions</span>
-                    </div>
-                </div>
-            </template>
-
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
+        <div class="question-list">
+          <h3 class="question-list-title" data-t="">Lesson questions</h3>
+          <div v-for="item of questions" class="question-item">
+            <a @click.prevent="toQuestion(item.id)" href="#">{{item.text}}</a>
+          </div>
+          <div v-if="!questions.length" class="alert-warning alert">
+            <span data-t="">The lesson has no questions</span>
+          </div>
         </div>
+      </template>
+
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+  </div>
 </template>

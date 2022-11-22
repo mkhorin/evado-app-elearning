@@ -17,9 +17,19 @@ module.exports = class TaskFileReaderRule extends Base {
     async checkReader () {
         const model = this.getTarget();
         const meta = model.class.meta;
-        const tasks = await meta.getClass('comment').find({files: model.getId()}).column('task');
-        const students = await meta.getClass('task').findById(tasks).column('student');
-        const user = await meta.getClass('student').findById(students).and({user: this.getUserId()}).id();
+        const commentClass = meta.getClass('comment');
+        const commentQuery  = commentClass.find({
+            files: model.getId()
+        });
+        const tasks = await commentQuery.column('task');
+        const taskClass = meta.getClass('task');
+        const taskQuery = taskClass.findById(tasks);
+        const students = await taskQuery.column('student');
+        const studentClass = meta.getClass('student');
+        const studentQuery = studentClass.findById(students).and({
+            user: this.getUserId()
+        });
+        const user = await studentQuery.id();
         return this.isAllow() ? !!user : !user;
     }
 
@@ -28,9 +38,13 @@ module.exports = class TaskFileReaderRule extends Base {
      */
     async getObjectFilter () {
         const meta = this.getBaseMeta();
-        const student = await meta.getClass('student').find({user: this.getUserId()}).id();
-        const task = await meta.getClass('task').find({student}).ids();
-        const files = await meta.getClass('comment').find({task}).column('files');
-        return {_id: [].concat(...files)};
+        const studentClass = meta.getClass('student');
+        const student = await studentClass.find({user: this.getUserId()}).id();
+        const taskClass = meta.getClass('task');
+        const task = await taskClass.find({student}).ids();
+        const commentClass = meta.getClass('comment');
+        const files = await commentClass.find({task}).column('files');
+        const ids = [].concat(...files);
+        return {_id: ids};
     }
 };

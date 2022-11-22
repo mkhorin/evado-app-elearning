@@ -11,14 +11,20 @@ const Base = require('evado/component/meta/rbac/rule/BaseRule');
 module.exports = class TaskCommentReaderRule extends Base {
 
     execute () {
-        return this.isObjectTarget() ? this.checkReader() : this.isAllow();
+        return this.isObjectTarget()
+            ? this.checkReader()
+            : this.isAllow();
     }
 
     async checkReader () {
         const model = this.getTarget();
         const meta = model.class.meta;
-        const student = await meta.getClass('task').findById(model.get('task')).scalar('student');
-        const user = await meta.getClass('student').findById(student).scalar('user');
+        const taskClass = meta.getClass('task');
+        const taskQuery = taskClass.findById(model.get('task'));
+        const student = await taskQuery.scalar('student'); // get single value
+        const studentClass = meta.getClass('student');
+        const studentQuery = studentClass.findById(student);
+        const user = await studentQuery.scalar('user');
         const matched = this.isUser(user);
         return this.isAllow() ? matched : !matched;
     }
