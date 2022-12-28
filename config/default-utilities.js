@@ -11,7 +11,7 @@ module.exports = {
         name: 'Create tasks',
         hint: 'Create tasks for all students',
         enabled: true,
-        frontClass: 'QuestionTaskCreation',
+        clientClass: 'QuestionTaskCreation',
         targetClass: 'question',
         actions: ['update']
     },
@@ -21,7 +21,7 @@ module.exports = {
         name: 'Create tasks',
         hint: 'Create tasks for all students',
         enabled: true,
-        frontClass: 'LessonTaskCreation',
+        clientClass: 'LessonTaskCreation',
         targetClass: 'lesson',
         actions: ['update']
     }
