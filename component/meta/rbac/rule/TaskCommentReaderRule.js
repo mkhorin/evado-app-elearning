@@ -35,8 +35,10 @@ module.exports = class TaskCommentReaderRule extends Base {
     async getObjectFilter () {
         const meta = this.getBaseMeta();
         const user = this.getUserId();
-        const student = await meta.getClass('student').find({user}).id();
-        const task = await meta.getClass('task').find({student}).ids();
+        const studentQuery = meta.getClass('student').find({user});
+        const student = await studentQuery.id();
+        const taskQuery = meta.getClass('task').find({student});
+        const task = await taskQuery.ids();
         return {task};
     }
 };

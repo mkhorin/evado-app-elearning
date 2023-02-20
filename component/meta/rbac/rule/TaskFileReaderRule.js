@@ -39,11 +39,16 @@ module.exports = class TaskFileReaderRule extends Base {
     async getObjectFilter () {
         const meta = this.getBaseMeta();
         const studentClass = meta.getClass('student');
-        const student = await studentClass.find({user: this.getUserId()}).id();
+        const studentQuery = studentClass.find({
+            user: this.getUserId()
+        });
+        const student = await studentQuery.id();
         const taskClass = meta.getClass('task');
-        const task = await taskClass.find({student}).ids();
+        const taskQuery = taskClass.find({student});
+        const task = await taskQuery.ids();
         const commentClass = meta.getClass('comment');
-        const files = await commentClass.find({task}).column('files');
+        const commentQuery = commentClass.find({task});
+        const files = await commentQuery.column('files');
         const ids = [].concat(...files);
         return {_id: ids};
     }

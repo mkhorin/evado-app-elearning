@@ -102,7 +102,9 @@ Vue.component('model-form', {
         },
         build (meta, defaultData) {
             this.metaData = this.prepareClassElements(meta, defaultData);
-            this.root = this.rootGroup ? this.getGroup(this.rootGroup) : this.metaData;
+            this.root = this.rootGroup
+                ? this.getGroup(this.rootGroup)
+                : this.metaData;
             this.elements = this.root.elements;
         },
         getGroup (name) {
@@ -144,11 +146,18 @@ Vue.component('model-form', {
             return data;
         },
         isVisibleAttr (attr) {
-            return (!Array.isArray(this.visibleAttrs) || this.visibleAttrs.includes(attr.name))
-                && (!attr.readOnly || !this.skipEmpty || !this.isEmptyAttr(attr));
+            if (!Array.isArray(this.visibleAttrs) || this.visibleAttrs.includes(attr.name)) {
+                if (!attr.readOnly || !this.skipEmpty || !this.isEmptyAttr(attr)) {
+                    return true;
+                }
+            }
+            return false;
         },
         isEmptyAttr ({value}) {
-            return value === null || value === '' || (Array.isArray(value) && !value.length);
+            if (value === null || value === '') {
+                return true;
+            }
+            return Array.isArray(value) && !value.length;
         },
         prepareAttrData (attr, data) {
             attr.readOnly = this.readOnly || attr.readOnly;
@@ -164,7 +173,8 @@ Vue.component('model-form', {
             this.getRefElements().forEach(ref => ref.clearError());
         },
         hasError () {
-            for (const ref of this.getRefElements()) {
+            const refs = this.getRefElements();
+            for (const ref of refs) {
                 if (ref.hasError()) {
                     return true;
                 }
@@ -172,15 +182,18 @@ Vue.component('model-form', {
         },
         serialize () {
             const result = {};
-            for (const ref of this.getRefElements()) {
+            const refs = this.getRefElements();
+            for (const ref of refs) {
                 result[ref.name] = ref.serialize();
             }
             return result;
         },
         async reset () {
             const data = await this.loadData();
-            for (const ref of this.getRefElements()) {
-                ref.setValue(data.hasOwnProperty(ref.name) ? data[ref.name] : undefined);
+            const refs = this.getRefElements();
+            for (const ref of refs) {
+                const value = data.hasOwnProperty(ref.name) ? data[ref.name] : undefined;
+                ref.setValue(value);
             }
         }
     },
