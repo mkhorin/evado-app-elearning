@@ -16,7 +16,7 @@ module.exports = class TaskFileReaderRule extends Base {
 
     async checkReader () {
         const model = this.getTarget();
-        const meta = model.class.meta;
+        const {meta} = model.class;
         const commentClass = meta.getClass('comment');
         const commentQuery  = commentClass.find({
             files: model.getId()

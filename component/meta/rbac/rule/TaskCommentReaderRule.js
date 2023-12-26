@@ -18,7 +18,7 @@ module.exports = class TaskCommentReaderRule extends Base {
 
     async checkReader () {
         const model = this.getTarget();
-        const meta = model.class.meta;
+        const {meta} = model.class;
         const taskClass = meta.getClass('task');
         const taskQuery = taskClass.findById(model.get('task'));
         const student = await taskQuery.scalar('student'); // get single value
